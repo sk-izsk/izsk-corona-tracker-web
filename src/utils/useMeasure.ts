@@ -15,8 +15,12 @@ const useMeasure: () => (
   const ref = useRef<any>();
   const [bounds, set] = useState({ left: 0, top: 0, width: 0, height: 0 });
   const [ro] = useState(() => new ResizeObserver(([entry]) => set(entry.contentRect)));
-  // eslint-disable-next-line
-  useEffect(() => (ro.observe(ref.current), ro.disconnect), [ro]);
+  useEffect(() => {
+    ro.observe(ref.current);
+    return () => {
+      ro.disconnect();
+    };
+  }, [ro]);
   return [{ ref }, bounds];
 };
 

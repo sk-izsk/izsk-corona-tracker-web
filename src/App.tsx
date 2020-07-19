@@ -4,6 +4,7 @@ import { AppProvider } from './AppProvider';
 import { LoadingScreen, NavBar } from './components';
 
 const HomeScreen = lazy(() => import('../src/screens/Home/Home'));
+const AboutScreen = lazy(() => import('../src//screens/About/About'));
 
 const App: FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: FC = () => {
             <Redirect to='/home' />
           </Route>
           <Route path='/home' exact component={HomeScreen} />
+          <Route path='/about' exact component={AboutScreen} />
         </Suspense>
       </Switch>
     </AppProvider>
