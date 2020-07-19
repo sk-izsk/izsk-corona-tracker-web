@@ -31,15 +31,20 @@
     "eject": "react-scripts eject",
     "test-ci": "react-scripts test --coverage",
     "prettier:check": "prettier --config .prettierrc.js --check \"*/**/*.{ts,tsx,js,jsx,json,sass,scss,css,html,md}\"",
-      "prettier:fix": "yarn prettier:check --write",
-      "prettier:fix-all": "yarn prettier:check --write",
-      "tslint": "tslint --project tsconfig.json",
-      "lint:check": "eslint --config .eslintrc.js \"src/**/*.{ts,tsx}\"",
-      "lint:fix": "yarn lint:check --fix",
-      "quality:check": "yarn lint:check && yarn prettier:check",
-      "quality:fix": "yarn lint:fix && yarn prettier:fix",
-      "precommit:check": "yarn prettier:fix-all",
-      "clean": "rm -fr node_modules"
+    "prettier:fix": "yarn prettier:check --write",
+    "prettier:fix-all": "yarn prettier:check --write",
+    "tslint": "tslint --project tsconfig.json",
+    "lint:check": "eslint --config .eslintrc.js \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "yarn lint:check --fix",
+    "quality:check": "yarn lint:check && yarn prettier:check",
+    "quality:fix": "yarn lint:fix && yarn prettier:fix",
+    "precommit:check": "yarn prettier:fix-all",
+    "clean": "rm -fr node_modules"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit:check"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -50,11 +55,6 @@
       "not dead",
       "not op_mini all"
     ],
-    "husky": {
-      "hooks": {
-        "pre-commit": "yarn precommit:check"
-      }
-    },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
