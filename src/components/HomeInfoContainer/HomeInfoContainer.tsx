@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     boxSizing: 'border-box',
   },
   values: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
     color: ({ color }: HomeInfoContainerProps): string => (color ? color : theme.palette.primary.main),
   },

@@ -1,21 +1,9 @@
-import AppBar from '@material-ui/core/AppBar';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import React from 'react';
 import { FcAbout, FcGlobe, FcHome, FcPieChart } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { IoMdMenu } from 'react-icons/io';
+import { Drawer } from '..';
 
 const drawerWidth = 240;
 
@@ -43,43 +31,9 @@ const useStyles = makeStyles((theme) => ({
   hide: {
     display: 'none',
   },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-  link: {
-    textDecoration: 'none',
-    color: theme.palette.primary.main,
-  },
 }));
 
-interface MenuItem {
+export interface MenuItem {
   name: string;
   to: string;
   icon: JSX.Element;
@@ -110,15 +64,10 @@ const menuItems: MenuItem[] = [
 
 const NavBar = () => {
   const classes = useStyles();
-  const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawer = () => {
+    setOpen(!open);
   };
 
   return (
@@ -134,43 +83,18 @@ const NavBar = () => {
           <IconButton
             color='inherit'
             aria-label='open drawer'
-            onClick={handleDrawerOpen}
+            onClick={handleDrawer}
             edge='start'
             className={clsx(classes.menuButton, open && classes.hide)}
           >
-            <MenuIcon />
+            <IoMdMenu />
           </IconButton>
           <Typography variant='h6' noWrap>
             Covid Tracker
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant='temporary'
-        anchor='left'
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-          {menuItems.map((menuItem: MenuItem) => (
-            <Link className={classes.link} to={menuItem.to} key={menuItem.to} onClick={handleDrawerClose}>
-              <ListItem button>
-                <ListItemIcon>{menuItem.icon}</ListItemIcon>
-                <ListItemText primary={menuItem.name} />
-              </ListItem>
-            </Link>
-          ))}
-        </List>
-      </Drawer>
+      <Drawer open={open} handleDrawer={handleDrawer} menuItems={menuItems} />
     </div>
   );
 };
