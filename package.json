@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,16 +12,34 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "clsx": "^1.1.1",
+    "husky": "^4.2.5",
+    "lint": "^0.7.0",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-query": "^2.5.4",
     "react-scripts": "3.4.1",
+    "tslint": "^6.1.2",
     "typescript": "~3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test-ci": "react-scripts test --coverage",
+    "prettier:check": "prettier --config .prettierrc.js --check \"*/**/*.{ts,tsx,js,jsx,json,sass,scss,css,html,md}\"",
+      "prettier:fix": "yarn prettier:check --write",
+      "prettier:fix-all": "yarn prettier:check --write",
+      "tslint": "tslint --project tsconfig.json",
+      "lint:check": "eslint --config .eslintrc.js \"src/**/*.{ts,tsx}\"",
+      "lint:fix": "yarn lint:check --fix",
+      "quality:check": "yarn lint:check && yarn prettier:check",
+      "quality:fix": "yarn lint:fix && yarn prettier:fix",
+      "precommit:check": "yarn prettier:fix-all",
+      "clean": "rm -fr node_modules"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,10 +50,18 @@
       "not dead",
       "not op_mini all"
     ],
+    "husky": {
+      "hooks": {
+        "pre-commit": "yarn precommit:check"
+      }
+    },
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-query-devtools": "^2.3.1"
   }
 }
