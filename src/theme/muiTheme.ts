@@ -12,6 +12,8 @@ const colors = {
   yellow: '#F2D535',
   lighterYellow: '#EED66E',
   white: '#EEFCF3',
+  blue: '#2196f3',
+  green: '#00B96F',
 };
 
 export interface CustomTheme extends Theme {
@@ -32,6 +34,7 @@ let muiTheme = createMuiTheme({
     },
     primary: {
       main: colors.darkBlue,
+      light: colors.blue,
     },
     secondary: {
       main: colors.primaryPink,
@@ -40,6 +43,7 @@ let muiTheme = createMuiTheme({
     success: {
       contrastText: colors.white,
       main: colors.pink,
+      light: colors.green,
     },
     text: {
       primary: '#4A4A4A',

@@ -12,7 +12,6 @@ const getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<vo
       const { data } = response;
       const { confirmed, deaths, recovered, lastUpdate } = data;
       // if (!getState.homeData.lastUpdate || getState.homeData.lastUpdate !== lastUpdate) {
-      console.log('tick');
       const payload: homeDataInitialState = {
         confirmed: confirmed.value,
         recovered: recovered.value,

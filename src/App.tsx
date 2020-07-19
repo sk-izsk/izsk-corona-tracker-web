@@ -1,13 +1,14 @@
 import React, { FC, lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
-import { LoadingScreen } from './components';
+import { LoadingScreen, NavBar } from './components';
 
 const HomeScreen = lazy(() => import('../src/screens/Home/Home'));
 
 const App: FC = () => {
   return (
     <AppProvider>
+      <NavBar />
       <Switch>
         <Suspense fallback={<LoadingScreen />}>
           <Route exact path='/'>

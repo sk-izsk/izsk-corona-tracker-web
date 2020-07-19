@@ -20,7 +20,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = () => {
   const classes: Record<'loaderContainer', string> = useStyles();
   return (
     <div className={classes.loaderContainer}>
-      <Loader type='Puff' color={theme.palette.warning.main} height={200} width={200} visible />
+      <Loader type='Puff' color={theme.palette.secondary.main} height={200} width={200} visible />
     </div>
   );
 };
