@@ -10,7 +10,7 @@ import { Actions } from '../../redux/thunk';
 import { CustomTheme } from '../../theme/muiTheme';
 import { paginate } from '../../utils/paginate';
 
-export interface CountriesRecoveredProps {}
+export interface CountriesDeathsProps {}
 const useStyles = makeStyles((theme: CustomTheme) => ({
   paginateContainer: {
     display: 'flex',
@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
 }));
 
-const CountriesRecovered: React.FC<CountriesRecoveredProps> = () => {
+const CountriesDeaths: React.FC<CountriesDeathsProps> = () => {
   const classes = useStyles();
   const dispatch: Dispatch<any> = useDispatch();
-  const countryRecoveredList: CountryResponse[] = useSelector<any, CountryResponse[]>(
-    (state: RootState) => state.countryRecoveredList,
+  const countryDeathsList: CountryResponse[] = useSelector<any, CountryResponse[]>(
+    (state: RootState) => state.countryDeathsList,
   );
   const itemsPerPage: number = 30;
   const [page, setPage] = useState<number>(1);
@@ -36,11 +36,11 @@ const CountriesRecovered: React.FC<CountriesRecoveredProps> = () => {
   };
 
   useEffect(() => {
-    if (countryRecoveredList.length === 0) {
-      dispatch(Actions.getCountryRecoveredList());
+    if (countryDeathsList.length === 0) {
+      dispatch(Actions.getCountryDeathsList());
     }
-    setPaginatedCountryList(paginate(countryRecoveredList, itemsPerPage, page));
-  }, [dispatch, countryRecoveredList, page]);
+    setPaginatedCountryList(paginate(countryDeathsList, itemsPerPage, page));
+  }, [dispatch, countryDeathsList, page]);
 
   return (
     <>
@@ -48,7 +48,7 @@ const CountriesRecovered: React.FC<CountriesRecoveredProps> = () => {
       <Box className={classes.paginateContainer}>
         <Pagination
           onChange={handlePaginate}
-          count={Math.round(countryRecoveredList.length / itemsPerPage)}
+          count={Math.round(countryDeathsList.length / itemsPerPage)}
           variant='outlined'
           color='secondary'
         />
@@ -57,4 +57,4 @@ const CountriesRecovered: React.FC<CountriesRecoveredProps> = () => {
   );
 };
 
-export default CountriesRecovered;
+export default CountriesDeaths;

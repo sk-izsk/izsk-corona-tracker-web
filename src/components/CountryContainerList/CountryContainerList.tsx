@@ -9,7 +9,7 @@ export interface CountryContainerListProps {
 }
 const useStyles = makeStyles((theme: CustomTheme) => ({
   mainContainer: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(3),
     display: 'flex',
     flexDirection: 'column',
     paddingLeft: theme.spacing(1),

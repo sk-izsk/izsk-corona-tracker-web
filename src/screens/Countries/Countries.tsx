@@ -1,4 +1,4 @@
-import { Box, makeStyles } from '@material-ui/core';
+import { Box, makeStyles, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import { Dispatch } from '@reduxjs/toolkit';
 import React, { useEffect, useState } from 'react';
@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     justifyContent: 'center',
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
+  },
+  header: {
+    textAlign: 'center',
+    marginTop: theme.spacing(10),
   },
 }));
 
@@ -44,6 +48,9 @@ const Countries: React.FC<CountriesProps> = () => {
 
   return (
     <>
+      <Typography className={classes.header} variant='h5'>
+        Sort by number of confirmed
+      </Typography>
       {paginatedCountryList.length > 0 && <CountryContainerList countryList={paginatedCountryList} />}
       <Box className={classes.paginateContainer}>
         <Pagination
