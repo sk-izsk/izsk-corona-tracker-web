@@ -1,5 +1,5 @@
 export { CountryContainer } from './CountryContainer/CountryContainer';
-export { CountryContainerList } from './CountryContainerList/CountryContainerList';
+export { CountryListContainer } from './CountryListContainer/CountryListContainer';
 export { Drawer } from './Drawer/Drawer';
 export { HomeInfoContainer } from './HomeInfoContainer/HomeInfoContainer';
 export { LoadingScreen } from './Loader/Loader';
