@@ -7,6 +7,7 @@ import {
   CountriesDeathsScreen,
   CountriesRecoveredScreen,
   CountriesScreen,
+  CountryScreen,
   HomeScreen,
 } from './LazyComponents';
 
@@ -25,6 +26,7 @@ const App: FC = () => {
           <Route path='/confirmed' exact component={CountriesScreen} />
           <Route path='/recovered' exact component={CountriesRecoveredScreen} />
           <Route path='/deaths' exact component={CountriesDeathsScreen} />
+          <Route path='/country/:country' exact component={CountryScreen} />
         </Suspense>
       </Switch>
     </AppProvider>
