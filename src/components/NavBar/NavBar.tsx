@@ -1,9 +1,13 @@
 import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import React from 'react';
-import { FcAbout, FcGlobe, FcHome, FcPieChart } from 'react-icons/fc';
+import { AiOutlineSafety } from 'react-icons/ai';
+import { FaHospitalSymbol } from 'react-icons/fa';
+import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
+import { GiDeathZone } from 'react-icons/gi';
 import { IoMdMenu } from 'react-icons/io';
 import { Drawer } from '..';
+import { theme } from '../../theme/muiTheme';
 
 const drawerWidth = 240;
 
@@ -51,9 +55,19 @@ const menuItems: MenuItem[] = [
     icon: <FcGlobe size={25} />,
   },
   {
-    name: 'Chart',
-    to: '/chart',
-    icon: <FcPieChart size={25} />,
+    name: 'Confirmed',
+    to: '/countries',
+    icon: <FaHospitalSymbol size={25} color={theme.palette.primary.light} />,
+  },
+  {
+    name: 'Recovered',
+    to: '/recovered',
+    icon: <AiOutlineSafety size={25} color={theme.palette.success.light} />,
+  },
+  {
+    name: 'Deaths',
+    to: '/deaths',
+    icon: <GiDeathZone size={25} color={theme.palette.error.main} />,
   },
   {
     name: 'About',
