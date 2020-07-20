@@ -5,6 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { HomeInfoContainer } from '..';
 import { CustomTheme, theme } from '../../theme/muiTheme';
+import { capitalizeString } from '../../utils';
 
 export interface Information {
   name: string;
@@ -15,6 +16,7 @@ export interface Information {
 export interface InfoContainerProps {
   information: Information[];
   lastUpdate?: string;
+  countryName?: string;
 }
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -56,7 +58,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
 }));
 
-const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate }) => {
+const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, countryName }) => {
   const classes = useStyles();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
   const handleGetSummary = (countryName?: string) => {
@@ -65,17 +67,24 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate }
     }
     return window.open(`https://covid19.mathdro.id/api/og`, '_blank');
   };
+  const handleLink = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+  };
   return (
     <>
       <Box className={classes.mainContainer}>
         <Typography className={clsx([classes.textContainer, classes.header])} variant='h3'>
-          World wide cases
+          {countryName ? `${capitalizeString(countryName)} wide cases` : `World wide cases`}
         </Typography>
         <Grid className={clsx([classes.gridContainer, isMobile && classes.gridContainerMobile])} container>
           {information.map((info: Information) => {
             return (
               <Grid className={classes.item} key={info.name} item>
-                <Link className={clsx([classes.item, classes.link])} to={info.to}>
+                <Link
+                  className={clsx([classes.item, classes.link])}
+                  onClick={countryName ? handleLink : undefined}
+                  to={info.to}
+                >
                   <HomeInfoContainer name={info.name} value={info.value} />
                 </Link>
               </Grid>
@@ -96,11 +105,11 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate }
           </Typography>
         ) : (
           <Typography
-            onClick={() => handleGetSummary()}
+            onClick={() => handleGetSummary(countryName)}
             className={clsx([classes.textContainer, classes.download])}
             variant='h6'
           >
-            Get the summary of world wide cases
+            {`Get a summary of ${capitalizeString(countryName as string)} wide cases`}
           </Typography>
         )}
       </Box>

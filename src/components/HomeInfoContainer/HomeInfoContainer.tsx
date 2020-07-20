@@ -43,7 +43,7 @@ const HomeInfoContainer: React.FC<HomeInfoContainerProps> = (props) => {
   const { name, value } = props;
   const [open, setOpen] = useState<boolean>(false);
   const [bind] = useMeasure();
-  const values = useSpring({ width: open ? value : 0 });
+  const values = useSpring({ width: open ? Number(value) : 0 });
   const classes = useStyles(props);
 
   useEffect(() => {

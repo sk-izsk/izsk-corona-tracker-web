@@ -10,7 +10,7 @@ import { CustomTheme, theme } from '../../theme/muiTheme';
 import { useMeasure } from '../../utils';
 
 export interface CountryContainerProps {
-  name?: string;
+  name: string;
   valueForConfirmed?: number;
   valueForRecovered?: number;
   valueForDeaths?: number;
@@ -97,7 +97,10 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   }, []);
 
   return (
-    <Link className={clsx([classes.manContainer, isMobile && classes.mainContainerMobile, classes.link])} to='/'>
+    <Link
+      className={clsx([classes.manContainer, isMobile && classes.mainContainerMobile, classes.link])}
+      to={`/country/${name.toLowerCase()}/${valueForConfirmed}/${valueForRecovered}/${valueForDeaths}`}
+    >
       <Typography className={clsx([classes.header, isMobile && classes.headerMobile])} variant='h4'>
         {name}
       </Typography>

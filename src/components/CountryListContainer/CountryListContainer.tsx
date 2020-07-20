@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+    marginBottom: theme.spacing(2),
   },
   header: {
     textAlign: 'center',
