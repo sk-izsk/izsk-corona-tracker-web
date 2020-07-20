@@ -80,7 +80,7 @@ const Drawer: React.FC<DrawerProps> = ({ open, handleDrawer, menuItems }) => {
       <Divider />
       <List>
         {menuItems.map((menuItem: MenuItem) => (
-          <Link className={classes.link} to={menuItem.to} key={menuItem.to} onClick={handleDrawer}>
+          <Link className={classes.link} to={menuItem.to} key={menuItem.name} onClick={handleDrawer}>
             <ListItem button>
               <ListItemIcon>{menuItem.icon}</ListItemIcon>
               <ListItemText primary={menuItem.name} />
