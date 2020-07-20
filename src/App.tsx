@@ -1,10 +1,8 @@
-import React, { FC, lazy, Suspense } from 'react';
+import React, { FC, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 import { LoadingScreen, NavBar } from './components';
-
-const HomeScreen = lazy(() => import('../src/screens/Home/Home'));
-const AboutScreen = lazy(() => import('../src//screens/About/About'));
+import { AboutScreen, CountriesScreen, HomeScreen } from './LazyComponents';
 
 const App: FC = () => {
   return (
@@ -17,6 +15,9 @@ const App: FC = () => {
           </Route>
           <Route path='/home' exact component={HomeScreen} />
           <Route path='/about' exact component={AboutScreen} />
+          <Route path='/countries' exact component={CountriesScreen} />
+          <Route path='/confirmed' exact component={CountriesScreen} />
+          {/* <Route path='/recovered' exact component={CountriesRecoveredScreen} /> */}
         </Suspense>
       </Switch>
     </AppProvider>
