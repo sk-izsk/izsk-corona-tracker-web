@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountryContainer renders correctly 1`] = `
+<DocumentFragment>
+  <a
+    class="makeStyles-manContainer-1 makeStyles-link-9"
+    href="/country/mockname/123/123/123"
+  >
+    <h4
+      class="MuiTypography-root makeStyles-header-7 MuiTypography-h4"
+    >
+      mockName
+    </h4>
+    <div
+      class="MuiBox-root MuiBox-root-15 makeStyles-infoContainer-3"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-16 makeStyles-infoValueContainer-6"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-17 makeStyles-infoIconContainer-5"
+        >
+          <svg
+            class="makeStyles-icon-11"
+            color="#2196f3"
+            fill="currentColor"
+            height="25"
+            size="25"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(33, 150, 243);"
+            viewBox="0 0 512 512"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm112 376c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-88h-96v88c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V136c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v88h96v-88c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v240z"
+            />
+          </svg>
+          <h6
+            class="MuiTypography-root makeStyles-confirmedText-12 MuiTypography-h6"
+          >
+            Confirmed
+          </h6>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-18"
+        >
+          <div
+            class="makeStyles-values-10 makeStyles-confirmedText-12"
+          >
+            0
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-19 makeStyles-infoValueContainer-6"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-20 makeStyles-infoIconContainer-5"
+        >
+          <svg
+            class="makeStyles-icon-11"
+            color="#00B96F"
+            fill="currentColor"
+            height="25"
+            size="25"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(0, 185, 111);"
+            viewBox="0 0 1024 1024"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M512 64L128 192v384c0 212.1 171.9 384 384 384s384-171.9 384-384V192L512 64zm312 512c0 172.3-139.7 312-312 312S200 748.3 200 576V246l312-110 312 110v330z"
+            />
+            <path
+              d="M378.4 475.1a35.91 35.91 0 0 0-50.9 0 35.91 35.91 0 0 0 0 50.9l129.4 129.4 2.1 2.1a33.98 33.98 0 0 0 48.1 0L730.6 434a33.98 33.98 0 0 0 0-48.1l-2.8-2.8a33.98 33.98 0 0 0-48.1 0L483 579.7 378.4 475.1z"
+            />
+          </svg>
+          <h6
+            class="MuiTypography-root makeStyles-recoveredText-13 MuiTypography-h6"
+          >
+            Recovered
+          </h6>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-21"
+        >
+          <div
+            class="makeStyles-values-10 makeStyles-recoveredText-13"
+          >
+            0
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-22 makeStyles-infoValueContainer-6"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-23 makeStyles-infoIconContainer-5"
+        >
+          <svg
+            class="makeStyles-icon-11"
+            color="#E64D61"
+            fill="currentColor"
+            height="25"
+            size="25"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(230, 77, 97);"
+            viewBox="0 0 512 512"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M254.566 20.055c-59.624 0-99.147 26.426-125.21 65.767-25.084 37.862-36.733 88.14-37.583 136.746 35.068 17.25 55.994 35.297 65.088 54.416 8.03 16.882 4.974 34.41-5.042 47.96 22.02 19.97 59.516 32.352 98.135 32.972 38.86.624 77.95-10.4 102.942-33.174-5.034-5.972-8.774-12.36-10.582-19.37-2.54-9.836-.836-20.485 4.687-30.134 10.514-18.37 33.286-34.804 70.354-52.71-.878-46.03-12.275-96.24-37.225-134.714-25.985-40.068-65.52-67.76-125.564-67.76zm-75.748 125.982c46.19 10.87 94.98 10.703 145.752.205-25.867 37.59-123.918 37.62-145.752-.205zm-20.312 13.53c7.698 30.39 30.63 47.76 73.336 45.984l-1.112 33.59c-39.39 20.126-72.635 1.99-103.71-19.048h-.002c-4.848-30.567-.204-54.706 31.488-60.526zm186.69 0c31.69 5.82 36.333 29.958 31.486 60.525h-.002c-31.076 21.04-64.32 39.174-103.71 19.047l-1.11-33.59c42.707 1.776 65.637-15.594 73.335-45.984zM250.97 252.19c12.102 21.818 21.704 43.634 26.47 65.45-13.016 9.698-36.32 11.107-52.938 0 6.443-21.816 14.19-43.632 26.47-65.45zM100.405 353.108c-50.152 13.628-82.55 33.813-82.55 56.204 0 41.018 106.523 74.352 237.697 74.352s237.698-33.334 237.698-74.35c0-22.312-32.12-42.58-81.965-56.205 17.23 8.88 27.518 19.25 27.518 30.444 0 32.13-82.31 58.546-183.247 58.546-100.937 0-182.662-26.418-182.662-58.545 0-11.253 10.112-21.534 27.518-30.443h-.004zm62.54 2.637l-14.903 23.41c6.624 5.312 14.328 9.978 22.855 13.955l10.898-28.796c-6.58-2.48-12.888-5.336-18.848-8.57zm177.605.53c-5.772 3.14-11.804 5.894-18.038 8.28l10.703 28.477c8.005-3.6 15.612-7.817 22.666-12.676l-15.33-24.08zm-140.905 13.673L188.3 399.924c9.524 3.093 19.698 5.462 30.253 7.064l3.87-32.513c-7.754-1.09-15.377-2.6-22.778-4.528zm105.04.287c-7.468 1.95-15.113 3.434-22.85 4.48l3.823 32.126c10.274-1.605 20.384-3.967 30.112-7.11l-11.086-29.496zm-63.654 6.045l-3.893 32.712c9.87.637 19.92.623 29.947-.07l-3.873-32.535c-4.52.206-9.045.287-13.558.215-2.878-.047-5.752-.167-8.62-.323z"
+            />
+          </svg>
+          <h6
+            class="MuiTypography-root makeStyles-deathsText-14 MuiTypography-h6"
+          >
+            Deaths
+          </h6>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-24"
+        >
+          <div
+            class="makeStyles-values-10 makeStyles-deathsText-14"
+          >
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+   
+</DocumentFragment>
+`;

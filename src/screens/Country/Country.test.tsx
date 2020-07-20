@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import App from './App';
-import { RouterContextProvider } from './RouterContextProvider';
+import { RouterContextProvider } from '../../RouterContextProvider';
+import Country from './Country';
 
-test('App renders correctly', () => {
+test('Country renders correctly', () => {
   const { asFragment } = render(
     <RouterContextProvider>
-      <App />
+      <Country />
     </RouterContextProvider>,
   );
   expect(asFragment()).toMatchSnapshot();

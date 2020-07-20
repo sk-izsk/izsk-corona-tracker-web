@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="makeStyles-root-1"
+  >
+    <header
+      class="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorSecondary makeStyles-appBar-2 mui-fixed MuiPaper-elevation4"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+      >
+        <button
+          aria-label="open drawer"
+          class="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-4 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiIconButton-label"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"
+              />
+            </svg>
+          </span>
+        </button>
+        <h6
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
+        >
+          Covid Tracker
+        </h6>
+      </div>
+    </header>
+  </div>
+  <div
+    class="makeStyles-loaderContainer-12"
+  >
+    <div
+      aria-busy="true"
+      class=""
+    >
+      <svg
+        aria-label="audio-loading"
+        height="200"
+        stroke="#E63647"
+        viewBox="0 0 44 44"
+        width="200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke-width="2"
+        >
+          <circle
+            cx="22"
+            cy="22"
+            r="1"
+          >
+            <animate
+              attributeName="r"
+              begin="0s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.165, 0.84, 0.44, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 20"
+            />
+            <animate
+              attributeName="strokeOpacity"
+              begin="0s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.3, 0.61, 0.355, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 0"
+            />
+          </circle>
+          <circle
+            cx="22"
+            cy="22"
+            r="1"
+          >
+            <animate
+              attributeName="r"
+              begin="-0.9s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.165, 0.84, 0.44, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 20"
+            />
+            <animate
+              attributeName="strokeOpacity"
+              begin="-0.9s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.3, 0.61, 0.355, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 0"
+            />
+          </circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+   
+</DocumentFragment>
+`;
