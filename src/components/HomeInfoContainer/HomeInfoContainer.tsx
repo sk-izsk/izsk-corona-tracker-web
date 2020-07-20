@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { animated, useSpring } from 'react-spring';
 import { CustomTheme } from '../../theme/muiTheme';
 import { useMeasure } from '../../utils/';
+import { getIcon } from '../../utils/getIcon';
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
   mainContainer: {
@@ -19,29 +20,27 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     borderTopLeftRadius: 100,
     borderTopRightRadius: 100,
     border: '10px solid',
-    borderColor: ({ color }: HomeInfoContainerProps): string => (color ? color : theme.palette.primary.main),
+    borderColor: ({ name }: HomeInfoContainerProps): string => getIcon(name)?.color as string,
     borderBottom: 0,
     boxSizing: 'border-box',
   },
   values: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: ({ color }: HomeInfoContainerProps): string => (color ? color : theme.palette.primary.main),
+    color: ({ name }: HomeInfoContainerProps): string => getIcon(name)?.color as string,
   },
   header: {
-    color: ({ color }: HomeInfoContainerProps): string => (color ? color : theme.palette.primary.main),
+    color: ({ name }: HomeInfoContainerProps): string => getIcon(name)?.color as string,
   },
 }));
 
 export interface HomeInfoContainerProps {
   name?: string;
-  color?: string;
   value?: number;
-  icon?: JSX.Element;
 }
 
 const HomeInfoContainer: React.FC<HomeInfoContainerProps> = (props) => {
-  const { name, value, icon } = props;
+  const { name, value } = props;
   const [open, setOpen] = useState<boolean>(false);
   const [bind] = useMeasure();
   const values = useSpring({ width: open ? value : 0 });
@@ -56,7 +55,7 @@ const HomeInfoContainer: React.FC<HomeInfoContainerProps> = (props) => {
   return (
     <Box className={classes.mainContainer}>
       <Box className={classes.halfCircle}></Box>
-      {icon}
+      {getIcon(name)?.icon}
       <Typography className={classes.header} variant='h3'>
         {name}
       </Typography>

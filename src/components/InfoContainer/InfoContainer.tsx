@@ -10,8 +10,6 @@ export interface Information {
   name: string;
   to: string;
   value: number | undefined;
-  color: string;
-  icon: JSX.Element;
 }
 
 export interface InfoContainerProps {
@@ -78,7 +76,7 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate }
             return (
               <Grid className={classes.item} key={info.name} item>
                 <Link className={clsx([classes.item, classes.link])} to={info.to}>
-                  <HomeInfoContainer icon={info.icon} name={info.name} value={info.value} color={info.color} />
+                  <HomeInfoContainer name={info.name} value={info.value} />
                 </Link>
               </Grid>
             );
