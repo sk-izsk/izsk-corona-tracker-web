@@ -100,3 +100,14 @@ export interface CountryResponse {
   recoveredPerOneMillion: number;
   criticalPerOneMillion: number;
 }
+
+export interface Timeline {
+  cases: any;
+  deaths: any;
+  recovered: any;
+}
+export interface ProvinceResponse {
+  country: string;
+  province?: string | null;
+  timeline: Timeline;
+}

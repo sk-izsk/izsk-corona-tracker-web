@@ -5,6 +5,7 @@ import countryListSlice, { addCountryListData } from './countryListSlice';
 import countryNewCasesListSlice, { addCountryNewCasesListData } from './countryNewCasesListSlice';
 import countryRecoveredListSlice, { addCountryRecoveredListData } from './countryRecoveredListSlice';
 import homeDataSlice, { addHomeData } from './homeDataSlice';
+import provinceListSlice, { addProvinceListData } from './provinceListSlice';
 
 export { rootReducer } from './rootReducer';
 export { store } from './store';
@@ -15,6 +16,7 @@ export {
   continentListSlice,
   countryListSlice,
   countryNewCasesListSlice,
+  provinceListSlice,
   countryConfirmedListSlice,
   addCountryConfirmedListData,
   countryRecoveredListSlice,
@@ -24,4 +26,5 @@ export {
   addContinentListData,
   addCountryListData,
   addCountryNewCasesListData,
+  addProvinceListData,
 };

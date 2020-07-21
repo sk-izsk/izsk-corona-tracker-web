@@ -100,15 +100,17 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, 
             );
           })}
         </Grid>
-        <Typography
-          onClick={() => (countryName ? handleGetSummary(countryName) : handleGetSummary())}
-          className={clsx([classes.textContainer, classes.download])}
-          variant='h6'
-        >
-          {countryName
-            ? `Get a summary of ${capitalizeString(countryName as string)} wide cases`
-            : 'Get the summary of world wide cases'}
-        </Typography>
+        {type !== 'province' && type !== 'continent' && (
+          <Typography
+            onClick={() => (countryName ? handleGetSummary(countryName) : handleGetSummary())}
+            className={clsx([classes.textContainer, classes.download])}
+            variant='h6'
+          >
+            {countryName
+              ? `Get a summary of ${capitalizeString(countryName as string)} wide cases`
+              : 'Get the summary of world wide cases'}
+          </Typography>
+        )}
       </Box>
     </>
   );

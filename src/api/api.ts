@@ -27,4 +27,12 @@ const fetchCountryList = async (sort?: Sort) => {
   };
 };
 
-export { fetchContinentInformation, fetchCountryList };
+const fetchProvinceList = async () => {
+  const response = await axios.get('/historical?lastdays=1');
+  return {
+    status: response.status,
+    data: response.data,
+  };
+};
+
+export { fetchContinentInformation, fetchCountryList, fetchProvinceList };

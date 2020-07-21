@@ -6,6 +6,7 @@ import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
 import { GiDeathZone } from 'react-icons/gi';
 import { IoMdMenu } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 import { Drawer } from '..';
 import { theme } from '../../theme/muiTheme';
 
@@ -34,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
   },
   hide: {
     display: 'none',
+  },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.warning.contrastText,
   },
 }));
 
@@ -109,7 +114,9 @@ const NavBar = () => {
             <IoMdMenu />
           </IconButton>
           <Typography variant='h6' noWrap>
-            Covid Tracker
+            <Link className={classes.link} to='/'>
+              iZsk Covid Tracker
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>

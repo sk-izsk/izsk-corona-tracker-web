@@ -1,4 +1,5 @@
-import { ContinentResponse, CountryResponse } from '../api/response';
+import { format, subDays } from 'date-fns';
+import { ContinentResponse, CountryResponse, ProvinceResponse } from '../api/response';
 
 export interface FormattedArray {
   name: string;
@@ -45,4 +46,26 @@ const getFormattedContinent: (continentList: ContinentResponse[]) => FormattedAr
   return formattedArray;
 };
 
-export { getFormattedCountry, getFormattedContinent };
+const yesterDay = format(subDays(new Date(), 1), 'M/dd/yy');
+
+const getFormattedProvince: (provinceList: ProvinceResponse[]) => FormattedArray[] = (
+  provinceList: ProvinceResponse[],
+) => {
+  let formattedArray: FormattedArray[] = [];
+  if (provinceList.length > 1) {
+    // eslint-disable-next-line
+    provinceList.map((province: ProvinceResponse) => {
+      formattedArray.push({
+        name: province.province as string,
+        valueForConfirmed: province.timeline.cases[yesterDay],
+        valueForRecovered: province.timeline.recovered[yesterDay],
+        valueForDeaths: province.timeline.deaths[yesterDay],
+        type: 'province',
+      });
+    });
+  }
+
+  return formattedArray;
+};
+
+export { getFormattedCountry, getFormattedContinent, getFormattedProvince };

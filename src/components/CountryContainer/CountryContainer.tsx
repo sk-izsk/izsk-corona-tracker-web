@@ -110,7 +110,9 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   return (
     <Link
       className={clsx([classes.manContainer, isMobile && classes.mainContainerMobile, classes.link])}
-      to={`/country/${name.toLowerCase()}?confirmed=${valueForConfirmed}&recovered=${valueForRecovered}&deaths=${valueForDeaths}&newCases=${valueForNewCases}&avatarLink=${avatarLink}&type=${type}`}
+      to={`/country/${
+        name === 'UK' ? name : name.toLowerCase()
+      }?confirmed=${valueForConfirmed}&recovered=${valueForRecovered}&deaths=${valueForDeaths}&newCases=${valueForNewCases}&avatarLink=${avatarLink}&type=${type}`}
     >
       <Typography className={clsx([classes.header, isMobile && classes.headerMobile])} variant='h4'>
         {avatarLink && <Avatar src={avatarLink} alt={avatarLink} className={classes.avatar} />} {name}

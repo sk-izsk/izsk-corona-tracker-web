@@ -2,6 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { addCountryListData, addCountryNewCasesListData } from '.';
 import { fetchContinentInformation, fetchCountryList } from '../api';
+import { fetchProvinceList } from '../api/api';
 import axios from '../api/axios';
 import { WorldWideResponse } from '../api/response';
 import { addHomeData, InitialState as homeDataInitialState } from '../redux/homeDataSlice';
@@ -9,12 +10,15 @@ import { addContinentListData } from './continentListSlice';
 import { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import { addCountryDeathsListData } from './countryDeathsListSlice';
 import { addCountryRecoveredListData } from './countryRecoveredListSlice';
+import { addProvinceListData } from './provinceListSlice';
 import { RootState } from './store';
 
 const getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
-      const response: AxiosResponse<WorldWideResponse> = await axios.get<any, AxiosResponse<WorldWideResponse>>('/all');
+      const response: AxiosResponse<WorldWideResponse> = await axios.get<any, AxiosResponse<WorldWideResponse>>(
+        '/all?yesterday=true',
+      );
       const { data } = response;
       const { deaths, recovered, cases, todayCases } = data;
       const payload: homeDataInitialState = {
@@ -109,6 +113,19 @@ const getCountryList = () => {
   };
 };
 
+const getProvinceList = () => {
+  return async (dispatch: Dispatch, getState: RootState) => {
+    try {
+      const { data, status } = await fetchProvinceList();
+      if (status === 200) {
+        dispatch(addProvinceListData(data));
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+};
+
 export const Actions: {
   getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryConfirmedList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
@@ -117,6 +134,7 @@ export const Actions: {
   getContinents: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryNewCasesList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
+  getProvinceList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
 } = {
   getHomeData,
   getCountryConfirmedList,
@@ -125,4 +143,5 @@ export const Actions: {
   getContinents,
   getCountryList,
   getCountryNewCasesList,
+  getProvinceList,
 };

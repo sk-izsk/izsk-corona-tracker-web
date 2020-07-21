@@ -6,6 +6,7 @@ import countryListSlice from './countryListSlice';
 import countryNewCasesListSlice from './countryNewCasesListSlice';
 import countryRecoveredListSlice from './countryRecoveredListSlice';
 import homeDataSlice from './homeDataSlice';
+import provinceListSlice from './provinceListSlice';
 
 const rootReducer = combineReducers({
   homeData: homeDataSlice,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   countryNewCasesList: countryNewCasesListSlice,
   continents: continentListSlice,
   countryList: countryListSlice,
+  provinceList: provinceListSlice,
 });
 
 export { rootReducer };
