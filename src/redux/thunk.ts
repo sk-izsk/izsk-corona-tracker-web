@@ -26,7 +26,6 @@ const getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<vo
         recovered: recovered,
         deaths: deaths,
         newCases: todayCases,
-        lastUpdate: '2020-07-21T04:38:46.000Z',
       };
       dispatch(addHomeData(payload));
     } catch (err) {

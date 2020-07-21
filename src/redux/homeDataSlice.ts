@@ -5,7 +5,6 @@ export interface InitialState {
   recovered?: number;
   deaths?: number;
   newCases?: number;
-  lastUpdate?: string;
 }
 
 let initialState: InitialState = {};

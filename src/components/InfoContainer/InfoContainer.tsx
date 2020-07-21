@@ -14,7 +14,6 @@ export interface Information {
 
 export interface InfoContainerProps {
   information: Information[];
-  lastUpdate?: string;
   countryName?: string;
   avatarLink?: string;
   type?: string;
@@ -66,7 +65,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
 }));
 
-const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, countryName, avatarLink, type }) => {
+const InfoContainer: React.FC<InfoContainerProps> = ({ information, countryName, avatarLink, type }) => {
   const classes = useStyles();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
   const handleGetSummary = (countryName?: string) => {

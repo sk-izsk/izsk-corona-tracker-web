@@ -19,14 +19,12 @@ describe('countryDeathsList reducer', () => {
           confirmed: 123,
           recovered: 123,
           deaths: 123,
-          lastUpdate: 'mock last update',
         } as Payload['homeData'],
       }),
     ).toEqual({
       confirmed: 123,
       recovered: 123,
       deaths: 123,
-      lastUpdate: 'mock last update',
     });
   });
 });

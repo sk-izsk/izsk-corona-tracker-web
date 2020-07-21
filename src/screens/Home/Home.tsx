@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = () => {
   const dispatch = useDispatch();
   const homeData: HomeDataInitialState = useSelector((state: RootState) => state.homeData);
   const continents: ContinentResponse[] = useSelector((state: RootState) => state.continents);
-  const { confirmed, deaths, recovered, lastUpdate, newCases } = homeData;
+  const { confirmed, deaths, recovered, newCases } = homeData;
   const formattedContinentList = getFormattedContinent(continents);
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
 
@@ -34,10 +34,9 @@ const Home: React.FC<HomeProps> = () => {
 
   return (
     <>
-      {homeData.lastUpdate ? (
+      {homeData.confirmed ? (
         <>
           <InfoContainer
-            lastUpdate={lastUpdate}
             information={getInformation(confirmed as number, recovered as number, deaths as number, newCases as number)}
           />
           <Box className={isMobile ? classes.infoContainer : undefined}>

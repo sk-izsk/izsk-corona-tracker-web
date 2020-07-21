@@ -12,21 +12,30 @@ exports[`CountryListContainer renders correctly 1`] = `
   >
     <a
       class="makeStyles-manContainer-5 makeStyles-link-13"
-      href="/country/us/221703/0/23400"
+      href="/country/mockname?confirmed=123&recovered=123&deaths=123&newCases=undefined&avatarLink=mock link&type=country"
     >
       <h4
         class="MuiTypography-root makeStyles-header-11 MuiTypography-h4"
       >
-        US
+        <div
+          class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-19"
+        >
+          <img
+            alt="mock link"
+            class="MuiAvatar-img"
+            src="mock link"
+          />
+        </div>
+         mockName
       </h4>
       <div
-        class="MuiBox-root MuiBox-root-19 makeStyles-infoContainer-7"
+        class="MuiBox-root MuiBox-root-20 makeStyles-infoContainer-7"
       >
         <div
-          class="MuiBox-root MuiBox-root-20 makeStyles-infoValueContainer-10"
+          class="MuiBox-root MuiBox-root-21 makeStyles-infoValueContainer-10"
         >
           <div
-            class="MuiBox-root MuiBox-root-21 makeStyles-infoIconContainer-9"
+            class="MuiBox-root MuiBox-root-22 makeStyles-infoIconContainer-9"
           >
             <svg
               class="makeStyles-icon-15"
@@ -52,7 +61,7 @@ exports[`CountryListContainer renders correctly 1`] = `
             </h6>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-22"
+            class="MuiBox-root MuiBox-root-23"
           >
             <div
               class="makeStyles-values-14 makeStyles-confirmedText-16"
@@ -62,10 +71,10 @@ exports[`CountryListContainer renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-23 makeStyles-infoValueContainer-10"
+          class="MuiBox-root MuiBox-root-24 makeStyles-infoValueContainer-10"
         >
           <div
-            class="MuiBox-root MuiBox-root-24 makeStyles-infoIconContainer-9"
+            class="MuiBox-root MuiBox-root-25 makeStyles-infoIconContainer-9"
           >
             <svg
               class="makeStyles-icon-15"
@@ -94,7 +103,7 @@ exports[`CountryListContainer renders correctly 1`] = `
             </h6>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-25"
+            class="MuiBox-root MuiBox-root-26"
           >
             <div
               class="makeStyles-values-14 makeStyles-recoveredText-17"
@@ -104,10 +113,10 @@ exports[`CountryListContainer renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-26 makeStyles-infoValueContainer-10"
+          class="MuiBox-root MuiBox-root-27 makeStyles-infoValueContainer-10"
         >
           <div
-            class="MuiBox-root MuiBox-root-27 makeStyles-infoIconContainer-9"
+            class="MuiBox-root MuiBox-root-28 makeStyles-infoIconContainer-9"
           >
             <svg
               class="makeStyles-icon-15"
@@ -133,7 +142,7 @@ exports[`CountryListContainer renders correctly 1`] = `
             </h6>
           </div>
           <div
-            class="MuiBox-root MuiBox-root-28"
+            class="MuiBox-root MuiBox-root-29"
           >
             <div
               class="makeStyles-values-14 makeStyles-deathsText-18"
@@ -146,7 +155,7 @@ exports[`CountryListContainer renders correctly 1`] = `
     </a>
   </div>
   <div
-    class="MuiBox-root MuiBox-root-29 makeStyles-paginateContainer-1"
+    class="MuiBox-root MuiBox-root-30 makeStyles-paginateContainer-1"
   >
     <nav
       aria-label="pagination navigation"
@@ -198,6 +207,6 @@ exports[`CountryListContainer renders correctly 1`] = `
       </ul>
     </nav>
   </div>
-   
+   ,
 </DocumentFragment>
 `;

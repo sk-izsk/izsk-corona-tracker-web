@@ -1,9 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Country renders correctly 1`] = `
+exports[`CountriesNewCases renders correctly 1`] = `
 <DocumentFragment>
+  <h5
+    class="MuiTypography-root makeStyles-header-2 MuiTypography-h5"
+  >
+    Sort based on number of new cases cases
+  </h5>
   <div
-    class="makeStyles-loaderContainer-2"
+    class="makeStyles-loaderContainer-4"
   >
     <div
       aria-busy="true"
@@ -78,6 +83,5 @@ exports[`Country renders correctly 1`] = `
       </svg>
     </div>
   </div>
-   
 </DocumentFragment>
 `;

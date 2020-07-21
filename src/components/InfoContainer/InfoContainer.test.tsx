@@ -11,8 +11,9 @@ const mockData = {
       to: '/mockRoute',
     },
   ],
-  lastUpdate: '2020-07-20T14:35:04.000Z',
   countryName: 'mock country',
+  avatarLink: 'mock link',
+  type: 'country',
 };
 
 test('InfoContainer renders correctly', () => {

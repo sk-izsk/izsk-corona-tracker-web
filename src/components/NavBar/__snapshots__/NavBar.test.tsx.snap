@@ -41,10 +41,16 @@ exports[`NavBar renders correctly 1`] = `
         <h6
           class="MuiTypography-root MuiTypography-h6 MuiTypography-noWrap"
         >
-          Covid Tracker
+          <a
+            class="makeStyles-link-6"
+            href="/"
+          >
+            iZsk Covid Tracker
+          </a>
         </h6>
       </div>
     </header>
   </div>
+   
 </DocumentFragment>
 `;

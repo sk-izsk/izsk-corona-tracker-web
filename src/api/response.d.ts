@@ -64,6 +64,10 @@ export interface ContinentResponse {
   recoveredPerOneMillion: number;
   criticalPerOneMillion: number;
   countries: string[];
+  continentInfo?: {
+    lat: number;
+    long: number;
+  };
 }
 
 export interface CountryInfo {
