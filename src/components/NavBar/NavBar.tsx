@@ -56,7 +56,7 @@ const menuItems: MenuItem[] = [
   },
   {
     name: 'Confirmed',
-    to: '/countries',
+    to: '/confirmed',
     icon: <FaHospitalSymbol size={25} color={theme.palette.primary.light} />,
   },
   {

@@ -57,11 +57,11 @@ const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) =
             {paginatedCountryList.map((country: CountryResponse) => {
               return (
                 <CountryContainer
-                  name={country.countryRegion}
-                  valueForConfirmed={country.confirmed}
+                  name={country.country}
+                  valueForConfirmed={country.cases}
                   valueForRecovered={country.recovered}
                   valueForDeaths={country.deaths}
-                  key={country.uid}
+                  key={country.country}
                 />
               );
             })}

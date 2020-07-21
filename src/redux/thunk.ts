@@ -1,9 +1,11 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
-import { fetchCountriesInformation } from '../api';
+import { addCountryListData } from '.';
+import { fetchContinentInformation, fetchCountryList } from '../api';
 import axios from '../api/axios';
 import { WorldWideResponse } from '../api/response';
 import { addHomeData, InitialState as homeDataInitialState } from '../redux/homeDataSlice';
+import { addContinentListData } from './continentListSlice';
 import { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import { addCountryDeathsListData } from './countryDeathsListSlice';
 import { addCountryRecoveredListData } from './countryRecoveredListSlice';
@@ -32,7 +34,7 @@ const getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<vo
 const getCountryConfirmedList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
-      const { data, status } = await fetchCountriesInformation('confirmed');
+      const { data, status } = await fetchCountryList('cases');
       if (status === 200) {
         dispatch(addCountryConfirmedListData(data));
       }
@@ -45,7 +47,7 @@ const getCountryConfirmedList: () => (dispatch: Dispatch, getState: RootState) =
 const getCountryRecoveredList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
-      const { data, status } = await fetchCountriesInformation('recovered');
+      const { data, status } = await fetchCountryList('recovered');
       if (status === 200) {
         dispatch(addCountryRecoveredListData(data));
       }
@@ -58,9 +60,35 @@ const getCountryRecoveredList: () => (dispatch: Dispatch, getState: RootState) =
 const getCountryDeathsList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
-      const { data, status } = await fetchCountriesInformation('deaths');
+      const { data, status } = await fetchCountryList('deaths');
       if (status === 200) {
         dispatch(addCountryDeathsListData(data));
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+};
+
+const getContinents = () => {
+  return async (dispatch: Dispatch, getState: RootState) => {
+    try {
+      const { data, status } = await fetchContinentInformation();
+      if (status === 200) {
+        dispatch(addContinentListData(data));
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+};
+
+const getCountryList = () => {
+  return async (dispatch: Dispatch, getState: RootState) => {
+    try {
+      const { data, status } = await fetchCountryList();
+      if (status === 200) {
+        dispatch(addCountryListData(data));
       }
     } catch (err) {
       console.warn(err);
@@ -73,9 +101,13 @@ export const Actions: {
   getCountryConfirmedList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryRecoveredList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryDeathsList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
+  getContinents: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
+  getCountryList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
 } = {
   getHomeData,
   getCountryConfirmedList,
   getCountryRecoveredList,
   getCountryDeathsList,
+  getContinents,
+  getCountryList,
 };
