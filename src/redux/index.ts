@@ -2,6 +2,7 @@ import continentListSlice, { addContinentListData } from './continentListSlice';
 import countryConfirmedListSlice, { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import countryDeathsListSlice, { addCountryDeathsListData } from './countryDeathsListSlice';
 import countryListSlice, { addCountryListData } from './countryListSlice';
+import countryNewCasesListSlice, { addCountryNewCasesListData } from './countryNewCasesListSlice';
 import countryRecoveredListSlice, { addCountryRecoveredListData } from './countryRecoveredListSlice';
 import homeDataSlice, { addHomeData } from './homeDataSlice';
 
@@ -13,6 +14,7 @@ export {
   addHomeData,
   continentListSlice,
   countryListSlice,
+  countryNewCasesListSlice,
   countryConfirmedListSlice,
   addCountryConfirmedListData,
   countryRecoveredListSlice,
@@ -21,4 +23,5 @@ export {
   addCountryDeathsListData,
   addContinentListData,
   addCountryListData,
+  addCountryNewCasesListData,
 };

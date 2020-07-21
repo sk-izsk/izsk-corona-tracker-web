@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
-import { addCountryListData } from '.';
+import { addCountryListData, addCountryNewCasesListData } from '.';
 import { fetchContinentInformation, fetchCountryList } from '../api';
 import axios from '../api/axios';
 import { WorldWideResponse } from '../api/response';
@@ -70,6 +70,19 @@ const getCountryDeathsList: () => (dispatch: Dispatch, getState: RootState) => P
   };
 };
 
+const getCountryNewCasesList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
+  return async (dispatch: Dispatch, getState: RootState) => {
+    try {
+      const { data, status } = await fetchCountryList('todayCases');
+      if (status === 200) {
+        dispatch(addCountryNewCasesListData(data));
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+};
+
 const getContinents = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
@@ -103,6 +116,7 @@ export const Actions: {
   getCountryDeathsList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getContinents: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
+  getCountryNewCasesList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
 } = {
   getHomeData,
   getCountryConfirmedList,
@@ -110,4 +124,5 @@ export const Actions: {
   getCountryDeathsList,
   getContinents,
   getCountryList,
+  getCountryNewCasesList,
 };

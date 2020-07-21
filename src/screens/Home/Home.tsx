@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContinentResponse } from '../../api/response';
-import { InfoContainer, LoadingScreen } from '../../components';
+import { CountryListContainer, InfoContainer, LoadingScreen } from '../../components';
 import { Actions } from '../../redux';
 import { InitialState as HomeDataInitialState } from '../../redux/homeDataSlice';
 import { RootState } from '../../redux/store';
-import { getInformation } from '../../utils';
+import { getFormattedContinent, getInformation } from '../../utils';
 
 export interface HomeProps {}
 
@@ -14,6 +14,7 @@ const Home: React.FC<HomeProps> = () => {
   const homeData: HomeDataInitialState = useSelector((state: RootState) => state.homeData);
   const continents: ContinentResponse[] = useSelector((state: RootState) => state.continents);
   const { confirmed, deaths, recovered, lastUpdate, newCases } = homeData;
+  const formattedContinentList = getFormattedContinent(continents);
 
   useEffect(() => {
     if (!homeData.confirmed || continents.length === 0) {
@@ -25,10 +26,13 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <>
       {homeData.lastUpdate ? (
-        <InfoContainer
-          lastUpdate={lastUpdate}
-          information={getInformation(confirmed as number, recovered as number, deaths as number, newCases as number)}
-        />
+        <>
+          <InfoContainer
+            lastUpdate={lastUpdate}
+            information={getInformation(confirmed as number, recovered as number, deaths as number, newCases as number)}
+          />
+          <CountryListContainer countryList={formattedContinentList} type='continents' />
+        </>
       ) : (
         <LoadingScreen />
       )}

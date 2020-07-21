@@ -5,6 +5,7 @@ import { CountryResponse } from '../../api/response';
 import { CountryListContainer } from '../../components';
 import { RootState } from '../../redux/store';
 import { Actions } from '../../redux/thunk';
+import { getFormattedCountry } from '../../utils';
 
 export interface CountriesDeathsProps {}
 
@@ -13,6 +14,7 @@ const CountriesDeaths: React.FC<CountriesDeathsProps> = () => {
   const countryDeathsList: CountryResponse[] = useSelector<any, CountryResponse[]>(
     (state: RootState) => state.countryDeathsList,
   );
+  const formattedCountryList = getFormattedCountry(countryDeathsList);
 
   useEffect(() => {
     if (countryDeathsList.length === 0) {
@@ -22,7 +24,7 @@ const CountriesDeaths: React.FC<CountriesDeathsProps> = () => {
 
   return (
     <>
-      <CountryListContainer countryList={countryDeathsList} type='death' />
+      <CountryListContainer countryList={formattedCountryList} type='death' />
     </>
   );
 };

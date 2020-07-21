@@ -5,6 +5,7 @@ import { CountryResponse } from '../../api/response';
 import { CountryListContainer } from '../../components';
 import { RootState } from '../../redux/store';
 import { Actions } from '../../redux/thunk';
+import { getFormattedCountry } from '../../utils';
 
 export interface CountriesConfirmedProps {}
 
@@ -13,6 +14,7 @@ const CountriesConfirmed: React.FC<CountriesConfirmedProps> = () => {
   const countryConfirmedList: CountryResponse[] = useSelector<any, CountryResponse[]>(
     (state: RootState) => state.countryConfirmedList,
   );
+  const formattedCountryList = getFormattedCountry(countryConfirmedList);
 
   useEffect(() => {
     if (countryConfirmedList.length === 0) {
@@ -22,7 +24,7 @@ const CountriesConfirmed: React.FC<CountriesConfirmedProps> = () => {
 
   return (
     <>
-      <CountryListContainer countryList={countryConfirmedList} type='confirmed' />
+      <CountryListContainer countryList={formattedCountryList} type='confirmed' />
     </>
   );
 };

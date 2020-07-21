@@ -2,7 +2,7 @@ import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-u
 import clsx from 'clsx';
 import React from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
-import { FaHospitalSymbol } from 'react-icons/fa';
+import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
 import { GiDeathZone } from 'react-icons/gi';
 import { IoMdMenu } from 'react-icons/io';
@@ -58,6 +58,11 @@ const menuItems: MenuItem[] = [
     name: 'Confirmed',
     to: '/confirmed',
     icon: <FaHospitalSymbol size={25} color={theme.palette.primary.light} />,
+  },
+  {
+    name: 'New cases',
+    to: '/new-cases',
+    icon: <FaBriefcaseMedical size={25} color={theme.palette.success.main} />,
   },
   {
     name: 'Recovered',
