@@ -1,3 +1,2 @@
-import axios from './axios';
 export { fetchCountriesInformation } from './api';
-export { axios };
+export { axios1 } from './axios';

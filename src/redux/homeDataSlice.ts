@@ -4,6 +4,7 @@ export interface InitialState {
   confirmed?: number;
   recovered?: number;
   deaths?: number;
+  newCases?: number;
   lastUpdate?: string;
 }
 

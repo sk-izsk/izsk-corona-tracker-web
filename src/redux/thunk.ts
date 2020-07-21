@@ -2,7 +2,7 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { fetchCountriesInformation } from '../api';
 import axios from '../api/axios';
-import { HomeDataResponse } from '../api/response';
+import { WorldWideResponse } from '../api/response';
 import { addHomeData, InitialState as homeDataInitialState } from '../redux/homeDataSlice';
 import { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import { addCountryDeathsListData } from './countryDeathsListSlice';
@@ -12,14 +12,15 @@ import { RootState } from './store';
 const getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
-      const response: AxiosResponse<HomeDataResponse> = await axios.get<any, AxiosResponse<HomeDataResponse>>('');
+      const response: AxiosResponse<WorldWideResponse> = await axios.get<any, AxiosResponse<WorldWideResponse>>('/all');
       const { data } = response;
-      const { confirmed, deaths, recovered, lastUpdate } = data;
+      const { deaths, recovered, cases, todayCases } = data;
       const payload: homeDataInitialState = {
-        confirmed: confirmed.value,
-        recovered: recovered.value,
-        deaths: deaths.value,
-        lastUpdate,
+        confirmed: cases,
+        recovered: recovered,
+        deaths: deaths,
+        newCases: todayCases,
+        lastUpdate: '2020-07-21T04:38:46.000Z',
       };
       dispatch(addHomeData(payload));
     } catch (err) {

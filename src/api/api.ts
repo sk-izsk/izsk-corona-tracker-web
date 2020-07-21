@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import axios from './axios';
+import { axios1 } from './axios';
 import { CountryResponse } from './response';
 
 const fetchCountriesInformation: (
@@ -8,7 +8,7 @@ const fetchCountriesInformation: (
   status: number;
   data: CountryResponse[];
 }> = async (informationType: string) => {
-  const response: AxiosResponse<CountryResponse[]> = await axios.get<any, AxiosResponse<CountryResponse[]>>(
+  const response: AxiosResponse<CountryResponse[]> = await axios1.get<any, AxiosResponse<CountryResponse[]>>(
     `/${informationType}`,
   );
   return {
