@@ -8,6 +8,7 @@ const CountriesDeathsScreen = lazy(() => import('../src/screens/CountriesDeath/C
 const CountryScreen = lazy(() => import('../src/screens/Country/Country'));
 const CountriesConfirmedScreen = lazy(() => import('../src/screens/CountriesConfirmed/CountriesConfirmed'));
 const CountriesNewCasesScreen = lazy(() => import('../src/screens/CountriesNewCases/CountriesNewCases'));
+const ChartScreen = lazy(() => import('../src/screens/Chart/Chart'));
 
 export {
   HomeScreen,
@@ -18,4 +19,5 @@ export {
   CountryScreen,
   CountriesConfirmedScreen,
   CountriesNewCasesScreen,
+  ChartScreen,
 };

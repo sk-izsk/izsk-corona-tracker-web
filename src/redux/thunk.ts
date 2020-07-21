@@ -2,10 +2,11 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 import { addCountryListData, addCountryNewCasesListData } from '.';
 import { fetchContinentInformation, fetchCountryList } from '../api';
-import { fetchProvinceList } from '../api/api';
+import { fetchChartDataList, fetchProvinceList } from '../api/api';
 import axios from '../api/axios';
 import { WorldWideResponse } from '../api/response';
 import { addHomeData, InitialState as homeDataInitialState } from '../redux/homeDataSlice';
+import { addChartData } from './chartSlice';
 import { addContinentListData } from './continentListSlice';
 import { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import { addCountryDeathsListData } from './countryDeathsListSlice';
@@ -125,6 +126,19 @@ const getProvinceList = () => {
   };
 };
 
+const getChartData = () => {
+  return async (dispatch: Dispatch, getState: RootState) => {
+    try {
+      const { data, status } = await fetchChartDataList();
+      if (status === 200) {
+        dispatch(addChartData(data));
+      }
+    } catch (err) {
+      console.warn(err);
+    }
+  };
+};
+
 export const Actions: {
   getHomeData: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryConfirmedList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
@@ -134,6 +148,7 @@ export const Actions: {
   getCountryList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getCountryNewCasesList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
   getProvinceList: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
+  getChartData: () => (dispatch: Dispatch, getState: RootState) => Promise<void>;
 } = {
   getHomeData,
   getCountryConfirmedList,
@@ -143,4 +158,5 @@ export const Actions: {
   getCountryList,
   getCountryNewCasesList,
   getProvinceList,
+  getChartData,
 };

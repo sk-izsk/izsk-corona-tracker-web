@@ -1,4 +1,5 @@
 import { combineReducers } from '@reduxjs/toolkit';
+import chartSlice from './chartSlice';
 import continentListSlice from './continentListSlice';
 import countryConfirmedListSlice from './countryConfirmedListSlice';
 import countryDeathsListSlice from './countryDeathsListSlice';
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   continents: continentListSlice,
   countryList: countryListSlice,
   provinceList: provinceListSlice,
+  chart: chartSlice,
 });
 
 export { rootReducer };
