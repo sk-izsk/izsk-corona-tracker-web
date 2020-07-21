@@ -1,6 +1,5 @@
 import { Avatar, Box, Grid, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
 import clsx from 'clsx';
-import { format } from 'date-fns';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { HomeInfoContainer } from '..';
@@ -18,6 +17,7 @@ export interface InfoContainerProps {
   lastUpdate?: string;
   countryName?: string;
   avatarLink?: string;
+  type?: string;
 }
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
 }));
 
-const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, countryName, avatarLink }) => {
+const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, countryName, avatarLink, type }) => {
   const classes = useStyles();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
   const handleGetSummary = (countryName?: string) => {
@@ -83,7 +83,7 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, 
       <Box className={classes.mainContainer}>
         <Typography className={clsx([classes.textContainer, classes.header])} variant='h3'>
           {countryName ? `${capitalizeString(countryName)} wide cases` : `World wide cases`}
-          {avatarLink && <Avatar className={classes.avatar} src={avatarLink} alt={avatarLink} />}
+          {avatarLink && type === 'country' && <Avatar className={classes.avatar} src={avatarLink} alt={avatarLink} />}
         </Typography>
         <Grid className={clsx([classes.gridContainer, isMobile && classes.gridContainerMobile])} container>
           {information.map((info: Information) => {
@@ -100,27 +100,15 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, lastUpdate, 
             );
           })}
         </Grid>
-        {lastUpdate ? (
-          <Typography className={classes.textContainer} variant='h6'>
-            As of {lastUpdate !== undefined && format(new Date(lastUpdate as string), 'KK:mm aa EEEE, do MMMM yyyy')}
-            <Typography
-              onClick={() => handleGetSummary()}
-              className={clsx([classes.textContainer, classes.download])}
-              variant='h6'
-              component='span'
-            >
-              Get the summary of world wide cases
-            </Typography>
-          </Typography>
-        ) : (
-          <Typography
-            onClick={() => handleGetSummary(countryName)}
-            className={clsx([classes.textContainer, classes.download])}
-            variant='h6'
-          >
-            {`Get a summary of ${capitalizeString(countryName as string)} wide cases`}
-          </Typography>
-        )}
+        <Typography
+          onClick={() => (countryName ? handleGetSummary(countryName) : handleGetSummary())}
+          className={clsx([classes.textContainer, classes.download])}
+          variant='h6'
+        >
+          {countryName
+            ? `Get a summary of ${capitalizeString(countryName as string)} wide cases`
+            : 'Get the summary of world wide cases'}
+        </Typography>
       </Box>
     </>
   );

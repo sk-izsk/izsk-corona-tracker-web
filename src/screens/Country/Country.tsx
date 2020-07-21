@@ -13,6 +13,7 @@ const Country: React.FC<CountryProps> = () => {
   const deaths: number = Number(data.get('deaths'));
   const newCases: number = Number(data.get('newCases'));
   const avatarLink = data.get('avatarLink');
+  const type = data.get('type');
 
   return (
     <>
@@ -20,6 +21,7 @@ const Country: React.FC<CountryProps> = () => {
         <InfoContainer
           countryName={country}
           avatarLink={avatarLink as string}
+          type={type as string}
           information={getInformation(confirmed as number, recovered as number, deaths as number, newCases as number)}
         />
       ) : (

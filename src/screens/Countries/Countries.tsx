@@ -21,7 +21,7 @@ const Countries: React.FC<CountriesProps> = () => {
 
   return (
     <>
-      <CountryListContainer countryList={formattedCountryList} type='confirmed' />
+      <CountryListContainer countryList={formattedCountryList} type='alphabetically' />
     </>
   );
 };

@@ -7,6 +7,7 @@ export interface FormattedArray {
   valueForDeaths: number;
   avatarLink?: string;
   valueForNewCase?: number;
+  type?: string;
 }
 
 const getFormattedCountry: (countryList: CountryResponse[]) => FormattedArray[] = (countryList: CountryResponse[]) => {
@@ -20,6 +21,7 @@ const getFormattedCountry: (countryList: CountryResponse[]) => FormattedArray[] 
       valueForDeaths: country.deaths,
       avatarLink: country.countryInfo.flag,
       valueForNewCase: country.todayCases,
+      type: 'country',
     });
   });
   return formattedArray;
@@ -37,6 +39,7 @@ const getFormattedContinent: (continentList: ContinentResponse[]) => FormattedAr
       valueForRecovered: continent.recovered,
       valueForDeaths: continent.deaths,
       valueForNewCase: continent.todayCases,
+      type: 'continent',
     });
   });
   return formattedArray;
