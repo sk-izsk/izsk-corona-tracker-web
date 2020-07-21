@@ -5,13 +5,6 @@ import { getInformation } from '../../utils';
 
 export interface CountryProps {}
 
-interface Data {
-  country: string;
-  confirmed: number;
-  recovered: number;
-  deaths: number;
-}
-
 const Country: React.FC<CountryProps> = () => {
   const { country, confirmed, recovered, deaths } = useParams();
 

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InfoContainer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root MuiBox-root-9 makeStyles-mainContainer-1"
+  >
+    <h3
+      class="MuiTypography-root makeStyles-textContainer-5 makeStyles-header-6 MuiTypography-h3"
+    >
+      Mock country wide cases
+    </h3>
+    <div
+      class="MuiGrid-root makeStyles-gridContainer-2 MuiGrid-container"
+    >
+      <div
+        class="MuiGrid-root makeStyles-item-4 MuiGrid-item"
+      >
+        <a
+          class="makeStyles-item-4 makeStyles-link-7"
+          href="/mockRoute"
+        >
+          <div
+            class="MuiBox-root MuiBox-root-17 makeStyles-mainContainer-10"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-18 makeStyles-halfCircle-11 makeStyles-halfCircle-14"
+            />
+            <h3
+              class="MuiTypography-root makeStyles-header-13 makeStyles-header-16 MuiTypography-h3"
+            >
+              mockName
+            </h3>
+            <div
+              class="MuiBox-root MuiBox-root-19"
+            >
+              <div
+                class="makeStyles-values-12 makeStyles-values-15"
+              >
+                0
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <h6
+      class="MuiTypography-root makeStyles-textContainer-5 MuiTypography-h6"
+    >
+      As of 08:05 PM Monday, 20th July 2020
+      <span
+        class="MuiTypography-root makeStyles-textContainer-5 makeStyles-download-8 MuiTypography-h6"
+      >
+        Get the summary of world wide cases
+      </span>
+    </h6>
+  </div>
+   
+</DocumentFragment>
+`;

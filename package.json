@@ -6,24 +6,13 @@
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@reduxjs/toolkit": "^1.4.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/date-fns": "^2.6.0",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-loader-spinner": "^3.1.0",
-    "@types/react-redux": "^7.1.9",
-    "@types/react-router-dom": "^5.1.5",
     "axios": "^0.19.2",
     "clsx": "^1.1.1",
     "date-fns": "^2.15.0",
+    "history": "^5.0.0",
     "husky": "^4.2.5",
     "lint": "^0.7.0",
     "particles-bg": "^2.5.0",
-    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
@@ -32,9 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-spring": "^8.0.27",
-    "resize-observer-polyfill": "^1.5.1",
-    "tslint": "^6.1.2",
-    "typescript": "~3.7.2"
+    "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -60,6 +47,25 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/date-fns": "^2.6.0",
+    "@types/history": "^4.7.6",
+    "@types/jest": "^24.0.0",
+    "@types/nock": "^11.1.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-loader-spinner": "^3.1.0",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "nock": "^13.0.2",
+    "prettier": "^2.0.5",
+    "tslint": "^6.1.2",
+    "typescript": "~3.7.2"
   },
   "browserslist": {
     "production": [
