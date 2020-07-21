@@ -15,6 +15,7 @@ export interface CountryContainerProps {
   valueForRecovered?: number;
   valueForDeaths?: number;
   avatarLink?: string;
+  valueForNewCases?: number;
 }
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -87,6 +88,7 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   valueForConfirmed,
   valueForDeaths,
   valueForRecovered,
+  valueForNewCases,
   avatarLink,
 }) => {
   const classes = useStyles();
@@ -106,7 +108,7 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   return (
     <Link
       className={clsx([classes.manContainer, isMobile && classes.mainContainerMobile, classes.link])}
-      to={`/country/${name.toLowerCase()}/${valueForConfirmed}/${valueForRecovered}/${valueForDeaths}`}
+      to={`/country/${name.toLowerCase()}?confirmed=${valueForConfirmed}&recovered=${valueForRecovered}&deaths=${valueForDeaths}&newCases=${valueForNewCases}&avatarLink=${avatarLink}`}
     >
       <Typography className={clsx([classes.header, isMobile && classes.headerMobile])} variant='h4'>
         {avatarLink && <Avatar src={avatarLink} alt={avatarLink} className={classes.avatar} />} {name}

@@ -1,21 +1,4 @@
-import { AxiosResponse } from 'axios';
-import axios, { axios1 } from './axios';
-import { CountryResponse } from './response';
-
-const fetchCountriesInformation: (
-  informationType: string,
-) => Promise<{
-  status: number;
-  data: CountryResponse[];
-}> = async (informationType: string) => {
-  const response: AxiosResponse<CountryResponse[]> = await axios1.get<any, AxiosResponse<CountryResponse[]>>(
-    `/${informationType}`,
-  );
-  return {
-    status: response.status,
-    data: response.data,
-  };
-};
+import axios from './axios';
 
 const fetchContinentInformation = async () => {
   const response = await axios.get('/continents');
@@ -44,4 +27,4 @@ const fetchCountryList = async (sort?: Sort) => {
   };
 };
 
-export { fetchCountriesInformation, fetchContinentInformation, fetchCountryList };
+export { fetchContinentInformation, fetchCountryList };

@@ -62,6 +62,7 @@ const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) =
                   valueForRecovered={country.valueForRecovered}
                   valueForDeaths={country.valueForDeaths}
                   avatarLink={country.avatarLink}
+                  valueForNewCases={country.valueForNewCase}
                   key={country.name}
                 />
               );

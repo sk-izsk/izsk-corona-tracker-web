@@ -4,3 +4,4 @@ export { getIcon } from './getIcon';
 export { getInformation } from './getInformation';
 export { paginate } from './paginate';
 export { useMeasure } from './useMeasure';
+export { useQuery } from './useQuery';
