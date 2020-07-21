@@ -5,6 +5,7 @@ export interface FormattedArray {
   valueForConfirmed: number;
   valueForRecovered: number;
   valueForDeaths: number;
+  avatarLink?: string;
 }
 
 const getFormattedCountry: (countryList: CountryResponse[]) => FormattedArray[] = (countryList: CountryResponse[]) => {
@@ -16,6 +17,7 @@ const getFormattedCountry: (countryList: CountryResponse[]) => FormattedArray[] 
       valueForConfirmed: country.cases,
       valueForRecovered: country.recovered,
       valueForDeaths: country.deaths,
+      avatarLink: country.countryInfo.flag,
     });
   });
   return formattedArray;

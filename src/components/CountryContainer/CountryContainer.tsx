@@ -1,4 +1,4 @@
-import { Box, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
+import { Avatar, Box, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
@@ -14,6 +14,7 @@ export interface CountryContainerProps {
   valueForConfirmed?: number;
   valueForRecovered?: number;
   valueForDeaths?: number;
+  avatarLink?: string;
 }
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -74,6 +75,11 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   deathsText: {
     color: theme.palette.error.main,
   },
+  avatar: {
+    marginRight: theme.spacing(1),
+    width: theme.spacing(5),
+    height: theme.spacing(5),
+  },
 }));
 
 const CountryContainer: React.FC<CountryContainerProps> = ({
@@ -81,6 +87,7 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   valueForConfirmed,
   valueForDeaths,
   valueForRecovered,
+  avatarLink,
 }) => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
@@ -102,7 +109,7 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
       to={`/country/${name.toLowerCase()}/${valueForConfirmed}/${valueForRecovered}/${valueForDeaths}`}
     >
       <Typography className={clsx([classes.header, isMobile && classes.headerMobile])} variant='h4'>
-        {name}
+        {avatarLink && <Avatar src={avatarLink} alt={avatarLink} className={classes.avatar} />} {name}
       </Typography>
       <Box className={clsx([classes.infoContainer, isMobile && classes.infoContainerMobile])}>
         <Box className={classes.infoValueContainer}>
