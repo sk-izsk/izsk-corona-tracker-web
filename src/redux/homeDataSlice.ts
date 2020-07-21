@@ -4,7 +4,7 @@ export interface InitialState {
   confirmed?: number;
   recovered?: number;
   deaths?: number;
-  lastUpdate?: string;
+  newCases?: number;
 }
 
 let initialState: InitialState = {};

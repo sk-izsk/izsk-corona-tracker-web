@@ -1,4 +1,4 @@
-const getInformation = (confirmed: number, recovered: number, deaths: number) => {
+const getInformation = (confirmed: number, recovered: number, deaths: number, newCases?: number) => {
   return [
     {
       name: 'Confirmed',
@@ -9,6 +9,11 @@ const getInformation = (confirmed: number, recovered: number, deaths: number) =>
       name: 'Recovered',
       to: '/recovered',
       value: recovered,
+    },
+    {
+      name: 'New cases',
+      to: '/new-cases',
+      value: newCases,
     },
     {
       name: 'Deaths',

@@ -1,4 +1,4 @@
-import { Box, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
+import { Avatar, Box, makeStyles, Typography, useMediaQuery } from '@material-ui/core';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
@@ -14,6 +14,9 @@ export interface CountryContainerProps {
   valueForConfirmed?: number;
   valueForRecovered?: number;
   valueForDeaths?: number;
+  avatarLink?: string;
+  valueForNewCases?: number;
+  type?: string;
 }
 
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -74,6 +77,11 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   deathsText: {
     color: theme.palette.error.main,
   },
+  avatar: {
+    marginRight: theme.spacing(1),
+    width: theme.spacing(5),
+    height: theme.spacing(5),
+  },
 }));
 
 const CountryContainer: React.FC<CountryContainerProps> = ({
@@ -81,6 +89,9 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   valueForConfirmed,
   valueForDeaths,
   valueForRecovered,
+  valueForNewCases,
+  avatarLink,
+  type,
 }) => {
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
@@ -99,10 +110,12 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   return (
     <Link
       className={clsx([classes.manContainer, isMobile && classes.mainContainerMobile, classes.link])}
-      to={`/country/${name.toLowerCase()}/${valueForConfirmed}/${valueForRecovered}/${valueForDeaths}`}
+      to={`/country/${
+        name === 'UK' ? name : name.toLowerCase()
+      }?confirmed=${valueForConfirmed}&recovered=${valueForRecovered}&deaths=${valueForDeaths}&newCases=${valueForNewCases}&avatarLink=${avatarLink}&type=${type}`}
     >
       <Typography className={clsx([classes.header, isMobile && classes.headerMobile])} variant='h4'>
-        {name}
+        {avatarLink && <Avatar src={avatarLink} alt={avatarLink} className={classes.avatar} />} {name}
       </Typography>
       <Box className={clsx([classes.infoContainer, isMobile && classes.infoContainerMobile])}>
         <Box className={classes.infoValueContainer}>

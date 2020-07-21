@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
-import { FaHospitalSymbol } from 'react-icons/fa';
+import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { GiDeathZone } from 'react-icons/gi';
 import { theme } from '../theme/muiTheme';
 
@@ -17,6 +17,11 @@ const getIcon = (type: string | undefined) => {
     };
   } else if (type === 'Deaths') {
     return { icon: <GiDeathZone size={25} color={theme.palette.error.main} />, color: theme.palette.error.main };
+  } else if (type === 'New cases') {
+    return {
+      icon: <FaBriefcaseMedical size={25} color={theme.palette.success.main} />,
+      color: theme.palette.success.main,
+    };
   }
 };
 

@@ -1,21 +1,21 @@
 import { CountryResponse } from '../api/response';
-import countryConfirmedList, { addCountryConfirmedListData } from './countryConfirmedListSlice';
+import countryListSlice, { addCountryListData } from './countryListSlice';
 
 const initialState: CountryResponse[] = [];
 
 interface Payload {
-  countryConfirmedList: CountryResponse[];
+  countryList: CountryResponse[];
 }
 
-describe('countryConfirmedList reducer', () => {
+describe('countryRecoveredList reducer', () => {
   it('should handle initial state', () => {
-    expect(countryConfirmedList(undefined, {} as any)).toEqual(initialState);
+    expect(countryListSlice(undefined, {} as any)).toEqual(initialState);
   });
 
   it('should handle applicantComments', () => {
     expect(
-      countryConfirmedList(initialState, {
-        type: addCountryConfirmedListData.type,
+      countryListSlice(initialState, {
+        type: addCountryListData.type,
         payload: [
           {
             updated: 1595329452610,
@@ -49,7 +49,7 @@ describe('countryConfirmedList reducer', () => {
             recoveredPerOneMillion: 609.23,
             criticalPerOneMillion: 0.8,
           },
-        ] as Payload['countryConfirmedList'],
+        ] as Payload['countryList'],
       }),
     ).toEqual([
       {

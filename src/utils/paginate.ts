@@ -1,6 +1,6 @@
-import { CountryResponse } from '../api/response';
-const paginate: (countryList: CountryResponse[], pageSize: number, pageNumber: number) => CountryResponse[] = (
-  countryList: CountryResponse[],
+import { FormattedArray } from './getFormatted';
+const paginate: (countryList: FormattedArray[], pageSize: number, pageNumber: number) => FormattedArray[] = (
+  countryList: FormattedArray[],
   pageSize: number,
   pageNumber: number,
 ) => {

@@ -1,14 +1,18 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CountryContainer } from '..';
-import { CountryResponse } from '../../api/response';
+import { ProvinceResponse } from '../../api/response';
+import { RootState } from '../../redux/store';
+import { Actions } from '../../redux/thunk';
 import { CustomTheme } from '../../theme/muiTheme';
+import { FormattedArray } from '../../utils/getFormatted';
 import { paginate } from '../../utils/paginate';
 import { LoadingScreen } from '../Loader/Loader';
 
 export interface CountriesProps {
-  countryList: CountryResponse[];
+  countryList: FormattedArray[];
   type?: string;
 }
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -33,9 +37,11 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
 
 const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const itemsPerPage: number = 30;
   const [page, setPage] = useState<number>(1);
-  const [paginatedCountryList, setPaginatedCountryList] = useState<CountryResponse[]>([]);
+  const [paginatedCountryList, setPaginatedCountryList] = useState<FormattedArray[]>([]);
+  const provinceList: ProvinceResponse[] = useSelector((state: RootState) => state.provinceList);
 
   const handlePaginate = (e: React.ChangeEvent<unknown>, value: number) => {
     e.preventDefault();
@@ -46,6 +52,12 @@ const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) =
     setPaginatedCountryList(paginate(countryList, itemsPerPage, page));
   }, [countryList, page]);
 
+  useEffect(() => {
+    if (provinceList.length === 0) {
+      dispatch(Actions.getProvinceList());
+    }
+  }, [dispatch, provinceList.length]);
+
   return (
     <>
       <Typography className={classes.header} variant='h5'>
@@ -54,14 +66,17 @@ const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) =
       {paginatedCountryList.length > 0 ? (
         <>
           <Grid className={classes.mainContainer} container>
-            {paginatedCountryList.map((country: CountryResponse) => {
+            {paginatedCountryList.map((country: FormattedArray) => {
               return (
                 <CountryContainer
-                  name={country.countryRegion}
-                  valueForConfirmed={country.confirmed}
-                  valueForRecovered={country.recovered}
-                  valueForDeaths={country.deaths}
-                  key={country.uid}
+                  name={country.name}
+                  valueForConfirmed={country.valueForConfirmed}
+                  valueForRecovered={country.valueForRecovered}
+                  valueForDeaths={country.valueForDeaths}
+                  avatarLink={country.avatarLink}
+                  valueForNewCases={country.valueForNewCase}
+                  type={country.type}
+                  key={country.name}
                 />
               );
             })}

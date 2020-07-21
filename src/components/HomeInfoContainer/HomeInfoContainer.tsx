@@ -53,16 +53,22 @@ const HomeInfoContainer: React.FC<HomeInfoContainerProps> = (props) => {
   }, [values]);
 
   return (
-    <Box className={classes.mainContainer}>
-      <Box className={classes.halfCircle}></Box>
-      {getIcon(name)?.icon}
-      <Typography className={classes.header} variant='h3'>
-        {name}
-      </Typography>
-      <Box {...bind} onClick={() => setOpen(!open)}>
-        <animated.div className={classes.values}>{values.width.interpolate((x: any) => x.toFixed(0))}</animated.div>
+    <>
+      <Box className={classes.mainContainer}>
+        <Box className={classes.halfCircle}></Box>
+        {getIcon(name)?.icon}
+        <Typography className={classes.header} variant='h3'>
+          {name}
+        </Typography>
+        <Box {...bind} onClick={() => setOpen(!open)}>
+          {!isNaN(value as number) ? (
+            <animated.div className={classes.values}>{values.width.interpolate((x: any) => x.toFixed(0))}</animated.div>
+          ) : (
+            <Typography className={classes.values}>NA</Typography>
+          )}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 

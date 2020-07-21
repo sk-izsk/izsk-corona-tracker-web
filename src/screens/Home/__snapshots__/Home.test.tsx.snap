@@ -3,7 +3,7 @@
 exports[`Home renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="makeStyles-loaderContainer-1"
+    class="makeStyles-loaderContainer-2"
   >
     <div
       aria-busy="true"

@@ -8,6 +8,9 @@ const mockData = {
   valueForConfirmed: 123,
   valueForRecovered: 123,
   valueForDeaths: 123,
+  valueForNewCases: 123,
+  type: 'country',
+  avatarLink: 'mock link',
 };
 test('CountryContainer renders correctly', () => {
   const { asFragment } = render(

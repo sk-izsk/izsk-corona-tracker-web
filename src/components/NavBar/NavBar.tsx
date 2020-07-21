@@ -2,10 +2,11 @@ import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-u
 import clsx from 'clsx';
 import React from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
-import { FaHospitalSymbol } from 'react-icons/fa';
+import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
 import { GiDeathZone } from 'react-icons/gi';
 import { IoMdMenu } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 import { Drawer } from '..';
 import { theme } from '../../theme/muiTheme';
 
@@ -35,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
   hide: {
     display: 'none',
   },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.warning.contrastText,
+  },
 }));
 
 export interface MenuItem {
@@ -56,8 +61,13 @@ const menuItems: MenuItem[] = [
   },
   {
     name: 'Confirmed',
-    to: '/countries',
+    to: '/confirmed',
     icon: <FaHospitalSymbol size={25} color={theme.palette.primary.light} />,
+  },
+  {
+    name: 'New cases',
+    to: '/new-cases',
+    icon: <FaBriefcaseMedical size={25} color={theme.palette.success.main} />,
   },
   {
     name: 'Recovered',
@@ -104,7 +114,9 @@ const NavBar = () => {
             <IoMdMenu />
           </IconButton>
           <Typography variant='h6' noWrap>
-            Covid Tracker
+            <Link className={classes.link} to='/'>
+              iZsk Covid Tracker
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
