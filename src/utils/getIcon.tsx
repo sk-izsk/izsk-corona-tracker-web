@@ -4,7 +4,14 @@ import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { GiDeathZone } from 'react-icons/gi';
 import { theme } from '../theme/muiTheme';
 
-const getIcon = (type: string | undefined) => {
+const getIcon: (
+  type: string | undefined,
+) =>
+  | {
+      icon: JSX.Element;
+      color: string;
+    }
+  | undefined = (type: string | undefined) => {
   if (type === 'Confirmed') {
     return {
       icon: <FaHospitalSymbol size={25} color={theme.palette.primary.light} />,

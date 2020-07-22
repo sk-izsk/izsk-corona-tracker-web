@@ -1,4 +1,3 @@
-import { format, subDays } from 'date-fns';
 import { ContinentResponse, CountryResponse, ProvinceResponse } from '../api/response';
 
 export interface FormattedArray {
@@ -46,8 +45,6 @@ const getFormattedContinent: (continentList: ContinentResponse[]) => FormattedAr
   return formattedArray;
 };
 
-const yesterDay = format(subDays(new Date(), 1), 'M/dd/yy');
-
 const getFormattedProvince: (provinceList: ProvinceResponse[]) => FormattedArray[] = (
   provinceList: ProvinceResponse[],
 ) => {
@@ -57,9 +54,9 @@ const getFormattedProvince: (provinceList: ProvinceResponse[]) => FormattedArray
     provinceList.map((province: ProvinceResponse) => {
       formattedArray.push({
         name: province.province as string,
-        valueForConfirmed: province.timeline.cases[yesterDay],
-        valueForRecovered: province.timeline.recovered[yesterDay],
-        valueForDeaths: province.timeline.deaths[yesterDay],
+        valueForConfirmed: Object.values(province.timeline.cases)[0] as number,
+        valueForRecovered: Object.values(province.timeline.recovered)[0] as number,
+        valueForDeaths: Object.values(province.timeline.deaths)[0] as number,
         type: 'province',
       });
     });
