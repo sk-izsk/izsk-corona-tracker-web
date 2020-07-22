@@ -1,8 +1,15 @@
+import { AxiosResponse } from 'axios';
 import { differenceInCalendarDays } from 'date-fns';
 import axios from './axios';
+import { ContinentResponse, CountryResponse, ProvinceResponse } from './response';
 
-const fetchContinentInformation = async () => {
-  const response = await axios.get('/continents');
+const fetchContinentInformation: () => Promise<{
+  status: number;
+  data: ContinentResponse[];
+}> = async () => {
+  const response: AxiosResponse<ContinentResponse[]> = await axios.get<any, AxiosResponse<ContinentResponse[]>>(
+    '/continents',
+  );
   return {
     status: response.status,
     data: response.data,
@@ -20,16 +27,38 @@ export type Sort =
   | 'casesPerOneMillion'
   | 'deathsPerOneMillion';
 
-const fetchCountryList = async (sort?: Sort) => {
-  const response = sort ? await axios.get(`/countries?sort=${sort}`) : await axios.get('/countries');
+const fetchCountryList: (
+  sort?:
+    | 'cases'
+    | 'todayCases'
+    | 'deaths'
+    | 'todayDeaths'
+    | 'recovered'
+    | 'active'
+    | 'critical'
+    | 'casesPerOneMillion'
+    | 'deathsPerOneMillion'
+    | undefined,
+) => Promise<{
+  status: number;
+  data: CountryResponse[];
+}> = async (sort?: Sort) => {
+  const response: AxiosResponse<CountryResponse[]> = sort
+    ? await axios.get<any, AxiosResponse<CountryResponse[]>>(`/countries?sort=${sort}`)
+    : await axios.get('/countries');
   return {
     status: response.status,
     data: response.data,
   };
 };
 
-const fetchProvinceList = async () => {
-  const response = await axios.get('/historical?lastdays=1');
+const fetchProvinceList: () => Promise<{
+  status: number;
+  data: ProvinceResponse[];
+}> = async () => {
+  const response: AxiosResponse<ProvinceResponse[]> = await axios.get<any, AxiosResponse<ProvinceResponse[]>>(
+    '/historical?lastdays=1',
+  );
   return {
     status: response.status,
     data: response.data,

@@ -76,6 +76,7 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, countryName,
   const handleLink = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
   };
+
   return (
     <>
       <Box className={classes.mainContainer}>

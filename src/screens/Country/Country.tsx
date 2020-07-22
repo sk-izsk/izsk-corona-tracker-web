@@ -18,11 +18,11 @@ const Country: React.FC<CountryProps> = () => {
   const newCases: number = Number(data.get('newCases'));
   const avatarLink = data.get('avatarLink');
   const type = data.get('type');
-
   const provinceList: ProvinceResponse[] = useSelector((state: RootState) => state.provinceList).filter(
-    (data: ProvinceResponse) => country === data.country.toLowerCase(),
+    (data: ProvinceResponse) => country.toLowerCase() === data.country.toLowerCase(),
   );
   const formattedProvinceList = getFormattedProvince(provinceList);
+
   return (
     <>
       {country && avatarLink ? (
