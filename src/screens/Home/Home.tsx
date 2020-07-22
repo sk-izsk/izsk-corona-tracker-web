@@ -12,7 +12,7 @@ import { getFormattedContinent, getInformation } from '../../utils';
 export interface HomeProps {}
 const useStyles = makeStyles((theme: CustomTheme) => ({
   infoContainer: {
-    marginTop: theme.spacing(25),
+    marginTop: theme.spacing(10),
   },
 }));
 
