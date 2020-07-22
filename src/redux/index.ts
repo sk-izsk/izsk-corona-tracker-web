@@ -1,4 +1,3 @@
-import chartSlice, { addChartData } from './chartSlice';
 import continentListSlice, { addContinentListData } from './continentListSlice';
 import countryConfirmedListSlice, { addCountryConfirmedListData } from './countryConfirmedListSlice';
 import countryDeathsListSlice, { addCountryDeathsListData } from './countryDeathsListSlice';
@@ -16,7 +15,6 @@ export {
   addHomeData,
   continentListSlice,
   countryListSlice,
-  chartSlice,
   countryNewCasesListSlice,
   provinceListSlice,
   countryConfirmedListSlice,
@@ -29,5 +27,4 @@ export {
   addCountryListData,
   addCountryNewCasesListData,
   addProvinceListData,
-  addChartData,
 };
