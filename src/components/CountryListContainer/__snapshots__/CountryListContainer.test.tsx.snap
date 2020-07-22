@@ -12,7 +12,7 @@ exports[`CountryListContainer renders correctly 1`] = `
   >
     <a
       class="makeStyles-manContainer-5 makeStyles-link-13"
-      href="/country/mockname?confirmed=123&recovered=123&deaths=123&newCases=undefined&avatarLink=mock link&type=country"
+      href="/country/mockName?confirmed=123&recovered=123&deaths=123&newCases=undefined&avatarLink=mock link&type=country"
     >
       <h4
         class="MuiTypography-root makeStyles-header-11 MuiTypography-h4"

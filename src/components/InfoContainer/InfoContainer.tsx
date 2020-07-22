@@ -80,7 +80,7 @@ const InfoContainer: React.FC<InfoContainerProps> = ({ information, countryName,
     <>
       <Box className={classes.mainContainer}>
         <Typography className={clsx([classes.textContainer, classes.header])} variant='h3'>
-          {countryName ? `${capitalizeString(countryName)} wide cases` : `World wide cases`}
+          {countryName ? `${countryName} wide cases` : `World wide cases`}
           {avatarLink && type === 'country' && <Avatar className={classes.avatar} src={avatarLink} alt={avatarLink} />}
         </Typography>
         <Grid className={clsx([classes.gridContainer, isMobile && classes.gridContainerMobile])} container>

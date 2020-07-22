@@ -8,7 +8,7 @@ exports[`InfoContainer renders correctly 1`] = `
     <h3
       class="MuiTypography-root makeStyles-textContainer-5 makeStyles-header-6 MuiTypography-h3"
     >
-      Mock country wide cases
+      mock country wide cases
       <div
         class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-9"
       >

@@ -4,7 +4,7 @@ exports[`CountryContainer renders correctly 1`] = `
 <DocumentFragment>
   <a
     class="makeStyles-manContainer-1 makeStyles-link-9"
-    href="/country/mockname?confirmed=123&recovered=123&deaths=123&newCases=123&avatarLink=mock link&type=country"
+    href="/country/mockName?confirmed=123&recovered=123&deaths=123&newCases=123&avatarLink=mock link&type=country"
   >
     <h4
       class="MuiTypography-root makeStyles-header-7 MuiTypography-h4"
