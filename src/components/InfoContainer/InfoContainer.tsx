@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     flexDirection: 'row',
   },
   gridContainerMobile: {
-    flexDirection: 'column',
     marginTop: theme.spacing(10),
   },
   item: {

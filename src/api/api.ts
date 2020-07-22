@@ -1,3 +1,4 @@
+import { differenceInCalendarDays } from 'date-fns';
 import axios from './axios';
 
 const fetchContinentInformation = async () => {
@@ -35,4 +36,14 @@ const fetchProvinceList = async () => {
   };
 };
 
-export { fetchContinentInformation, fetchCountryList, fetchProvinceList };
+const fetchChartDataList = async () => {
+  const response = await axios.get(
+    `/historical/all?lastdays=${differenceInCalendarDays(new Date(), new Date(2020, 1, 22))}`,
+  );
+  return {
+    status: response.status,
+    data: response.data,
+  };
+};
+
+export { fetchContinentInformation, fetchCountryList, fetchProvinceList, fetchChartDataList };

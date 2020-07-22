@@ -1,3 +1,3 @@
 import axios from './axios';
-export { fetchContinentInformation, fetchCountryList, fetchProvinceList } from './api';
+export { fetchChartDataList, fetchContinentInformation, fetchCountryList, fetchProvinceList } from './api';
 export { axios };

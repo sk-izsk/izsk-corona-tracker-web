@@ -106,9 +106,9 @@ export interface CountryResponse {
 }
 
 export interface Timeline {
-  cases: any;
-  deaths: any;
-  recovered: any;
+  cases?: any;
+  deaths?: any;
+  recovered?: any;
 }
 export interface ProvinceResponse {
   country: string;

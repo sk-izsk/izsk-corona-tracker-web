@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
 import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
-import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
+import { FcAbout, FcGlobe, FcHome, FcPieChart } from 'react-icons/fc';
 import { GiDeathZone } from 'react-icons/gi';
 import { IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-router-dom';
@@ -53,6 +53,11 @@ const menuItems: MenuItem[] = [
     name: 'Home',
     to: '/home',
     icon: <FcHome size={25} />,
+  },
+  {
+    name: 'Chart',
+    to: '/chart',
+    icon: <FcPieChart size={25} />,
   },
   {
     name: 'Countries',
