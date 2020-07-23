@@ -10,7 +10,11 @@ type BorderStyle =
   | 'none'
   | 'hidden';
 
-const makeBorder = (width: number, style: BorderStyle, color: string) => {
+const makeBorder: (width: number, style: BorderStyle, color: string) => string = (
+  width: number,
+  style: BorderStyle,
+  color: string,
+) => {
   return `${width}px ${style} ${color}`;
 };
 

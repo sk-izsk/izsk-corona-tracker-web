@@ -6,15 +6,16 @@ import { CountryListContainer } from '../../components';
 import { RootState } from '../../redux/store';
 import { Actions } from '../../redux/thunk';
 import { getFormattedCountry } from '../../utils';
+import { FormattedArray } from '../../utils/getFormatted';
 
 export interface CountriesNewCasesProps {}
 
 const CountriesNewCases: React.FC<CountriesNewCasesProps> = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  const countryNewCasesList: CountryResponse[] = useSelector<any, CountryResponse[]>(
+  const countryNewCasesList: CountryResponse[] = useSelector<RootState, CountryResponse[]>(
     (state: RootState) => state.countryNewCasesList,
   );
-  const formattedCountryList = getFormattedCountry(countryNewCasesList);
+  const formattedCountryList: FormattedArray[] = getFormattedCountry(countryNewCasesList);
 
   useEffect(() => {
     if (countryNewCasesList.length === 0) {

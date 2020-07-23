@@ -6,15 +6,16 @@ import { CountryListContainer } from '../../components';
 import { RootState } from '../../redux/store';
 import { Actions } from '../../redux/thunk';
 import { getFormattedCountry } from '../../utils';
+import { FormattedArray } from '../../utils/getFormatted';
 
 export interface CountriesConfirmedProps {}
 
 const CountriesConfirmed: React.FC<CountriesConfirmedProps> = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  const countryConfirmedList: CountryResponse[] = useSelector<any, CountryResponse[]>(
+  const countryConfirmedList: CountryResponse[] = useSelector<RootState, CountryResponse[]>(
     (state: RootState) => state.countryConfirmedList,
   );
-  const formattedCountryList = getFormattedCountry(countryConfirmedList);
+  const formattedCountryList: FormattedArray[] = getFormattedCountry(countryConfirmedList);
 
   useEffect(() => {
     if (countryConfirmedList.length === 0) {

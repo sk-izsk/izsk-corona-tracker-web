@@ -4,7 +4,6 @@ import { AppProvider } from './AppProvider';
 import { LoadingScreen, NavBar } from './components';
 import {
   AboutScreen,
-  ChartScreen,
   CountriesConfirmedScreen,
   CountriesDeathsScreen,
   CountriesNewCasesScreen,
@@ -30,7 +29,6 @@ const App: FC = () => {
           <Route path='/recovered' exact component={CountriesRecoveredScreen} />
           <Route path='/deaths' exact component={CountriesDeathsScreen} />
           <Route path='/new-cases' exact component={CountriesNewCasesScreen} />
-          <Route path='/chart' exact component={ChartScreen} />
           <Route path='/country/:country' component={CountryScreen} />
         </Suspense>
       </Switch>

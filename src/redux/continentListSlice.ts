@@ -1,9 +1,18 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
 import { ContinentResponse } from '../api/response';
 
 let initialState: ContinentResponse[] = [];
 
-const continentListSlice = createSlice({
+const continentListSlice: Slice<
+  ContinentResponse[],
+  {
+    addContinentListData: (
+      state: ContinentResponse[],
+      action: PayloadAction<ContinentResponse[]>,
+    ) => ContinentResponse[];
+  },
+  'continentList'
+> = createSlice({
   name: 'continentList',
   initialState,
   reducers: {

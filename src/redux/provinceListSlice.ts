@@ -1,9 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, Slice } from '@reduxjs/toolkit';
 import { ProvinceResponse } from '../api/response';
 
 let initialState: ProvinceResponse[] = [];
 
-const provinceListSlice = createSlice({
+const provinceListSlice: Slice<
+  ProvinceResponse[],
+  {
+    addProvinceListData: (state: ProvinceResponse[], action: PayloadAction<ProvinceResponse[]>) => ProvinceResponse[];
+  },
+  'provinceList'
+> = createSlice({
   name: 'provinceList',
   initialState,
   reducers: {
