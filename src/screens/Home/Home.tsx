@@ -13,7 +13,7 @@ import { FormattedArray } from '../../utils/getFormatted';
 export interface HomeProps {}
 const useStyles = makeStyles((theme: CustomTheme) => ({
   infoContainer: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(23),
   },
 }));
 
