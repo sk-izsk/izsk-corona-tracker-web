@@ -8,6 +8,7 @@ import { InitialState as HomeDataInitialState } from '../../redux/homeDataSlice'
 import { RootState } from '../../redux/store';
 import { CustomTheme, theme } from '../../theme/muiTheme';
 import { getFormattedContinent, getInformation } from '../../utils';
+import { FormattedArray } from '../../utils/getFormatted';
 
 export interface HomeProps {}
 const useStyles = makeStyles((theme: CustomTheme) => ({
@@ -19,10 +20,14 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
 const Home: React.FC<HomeProps> = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const homeData: HomeDataInitialState = useSelector((state: RootState) => state.homeData);
-  const continents: ContinentResponse[] = useSelector((state: RootState) => state.continents);
+  const homeData: HomeDataInitialState = useSelector<RootState, HomeDataInitialState>(
+    (state: RootState) => state.homeData,
+  );
+  const continents: ContinentResponse[] = useSelector<RootState, ContinentResponse[]>(
+    (state: RootState) => state.continents,
+  );
   const { confirmed, deaths, recovered, newCases } = homeData;
-  const formattedContinentList = getFormattedContinent(continents);
+  const formattedContinentList: FormattedArray[] = getFormattedContinent(continents);
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
 
   useEffect(() => {

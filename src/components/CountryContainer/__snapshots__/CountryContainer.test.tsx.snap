@@ -10,7 +10,7 @@ exports[`CountryContainer renders correctly 1`] = `
       class="MuiTypography-root makeStyles-header-7 MuiTypography-h4"
     >
       <div
-        class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-15"
+        class="MuiAvatar-root MuiAvatar-circle makeStyles-avatar-16"
       >
         <img
           alt="mock link"
@@ -21,13 +21,13 @@ exports[`CountryContainer renders correctly 1`] = `
        mockName
     </h4>
     <div
-      class="MuiBox-root MuiBox-root-16 makeStyles-infoContainer-3"
+      class="MuiBox-root MuiBox-root-17 makeStyles-infoContainer-3"
     >
       <div
-        class="MuiBox-root MuiBox-root-17 makeStyles-infoValueContainer-6"
+        class="MuiBox-root MuiBox-root-18 makeStyles-infoValueContainer-6"
       >
         <div
-          class="MuiBox-root MuiBox-root-18 makeStyles-infoIconContainer-5"
+          class="MuiBox-root MuiBox-root-19 makeStyles-infoIconContainer-5"
         >
           <svg
             class="makeStyles-icon-11"
@@ -53,7 +53,7 @@ exports[`CountryContainer renders correctly 1`] = `
           </h6>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-19"
+          class="MuiBox-root MuiBox-root-20"
         >
           <div
             class="makeStyles-values-10 makeStyles-confirmedText-12"
@@ -63,10 +63,10 @@ exports[`CountryContainer renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiBox-root MuiBox-root-20 makeStyles-infoValueContainer-6"
+        class="MuiBox-root MuiBox-root-21 makeStyles-infoValueContainer-6"
       >
         <div
-          class="MuiBox-root MuiBox-root-21 makeStyles-infoIconContainer-5"
+          class="MuiBox-root MuiBox-root-22 makeStyles-infoIconContainer-5"
         >
           <svg
             class="makeStyles-icon-11"
@@ -95,7 +95,7 @@ exports[`CountryContainer renders correctly 1`] = `
           </h6>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-22"
+          class="MuiBox-root MuiBox-root-23"
         >
           <div
             class="makeStyles-values-10 makeStyles-recoveredText-13"
@@ -105,10 +105,10 @@ exports[`CountryContainer renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="MuiBox-root MuiBox-root-23 makeStyles-infoValueContainer-6"
+        class="MuiBox-root MuiBox-root-24 makeStyles-infoValueContainer-6"
       >
         <div
-          class="MuiBox-root MuiBox-root-24 makeStyles-infoIconContainer-5"
+          class="MuiBox-root MuiBox-root-25 makeStyles-infoIconContainer-5"
         >
           <svg
             class="makeStyles-icon-11"
@@ -134,10 +134,49 @@ exports[`CountryContainer renders correctly 1`] = `
           </h6>
         </div>
         <div
-          class="MuiBox-root MuiBox-root-25"
+          class="MuiBox-root MuiBox-root-26"
         >
           <div
             class="makeStyles-values-10 makeStyles-deathsText-14"
+          >
+            0
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root MuiBox-root-27 makeStyles-infoValueContainer-6"
+      >
+        <div
+          class="MuiBox-root MuiBox-root-28 makeStyles-infoIconContainer-5"
+        >
+          <svg
+            class="makeStyles-icon-11"
+            color="#FB5B91"
+            fill="currentColor"
+            height="25"
+            size="25"
+            stroke="currentColor"
+            stroke-width="0"
+            style="color: rgb(251, 91, 145);"
+            viewBox="0 0 512 512"
+            width="25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M464 128h-80V80c0-26.5-21.5-48-48-48H176c-26.5 0-48 21.5-48 48v48H48c-26.5 0-48 21.5-48 48v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V176c0-26.5-21.5-48-48-48zM192 96h128v32H192V96zm160 248c0 4.4-3.6 8-8 8h-56v56c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-56h-56c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h56v-56c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v56h56c4.4 0 8 3.6 8 8v48z"
+            />
+          </svg>
+          <h6
+            class="MuiTypography-root makeStyles-deathsText-14 MuiTypography-h6"
+          >
+            New cases
+          </h6>
+        </div>
+        <div
+          class="MuiBox-root MuiBox-root-29"
+        >
+          <div
+            class="makeStyles-values-10 makeStyles-newCases-15"
           >
             0
           </div>

@@ -86,7 +86,7 @@ const getCountryNewCasesList: () => (dispatch: Dispatch, getState: RootState) =>
   };
 };
 
-const getContinents = () => {
+const getContinents: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
       const { data, status } = await fetchContinentInformation();
@@ -99,7 +99,7 @@ const getContinents = () => {
   };
 };
 
-const getCountryList = () => {
+const getCountryList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
       const { data, status } = await fetchCountryList();
@@ -112,7 +112,7 @@ const getCountryList = () => {
   };
 };
 
-const getProvinceList = () => {
+const getProvinceList: () => (dispatch: Dispatch, getState: RootState) => Promise<void> = () => {
   return async (dispatch: Dispatch, getState: RootState) => {
     try {
       const { data, status } = await fetchProvinceList();

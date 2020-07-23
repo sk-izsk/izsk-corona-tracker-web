@@ -2,7 +2,7 @@ import { Avatar, Box, makeStyles, Typography, useMediaQuery } from '@material-ui
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
-import { FaHospitalSymbol } from 'react-icons/fa';
+import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { GiDeathZone } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { animated, useSpring } from 'react-spring';
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
   infoContainer: {
     display: 'flex',
+    flexWrap: 'wrap',
   },
   infoContainerMobile: {
     justifyContent: 'center',
@@ -45,7 +46,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   infoValueContainer: {
     display: 'flex',
     flexDirection: 'column',
-    margin: theme.spacing(1),
+    margin: theme.spacing(1.75),
   },
   header: {
     display: 'flex',
@@ -77,6 +78,9 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   deathsText: {
     color: theme.palette.error.main,
   },
+  newCases: {
+    color: theme.palette.success.main,
+  },
   avatar: {
     marginRight: theme.spacing(1),
     width: theme.spacing(5),
@@ -96,9 +100,10 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
   const classes = useStyles();
   const [open, setOpen] = useState<boolean>(false);
   const [bind] = useMeasure();
-  const valuesForConfirmed = useSpring({ width: open ? valueForConfirmed : 0 });
-  const valuesForRecovered = useSpring({ width: open ? valueForRecovered : 0 });
-  const valuesForDeaths = useSpring({ width: open ? valueForDeaths : 0 });
+  const valuesForConfirmed = useSpring({ width: open ? Number(valueForConfirmed) : 0 });
+  const valuesForRecovered = useSpring({ width: open ? Number(valueForRecovered) : 0 });
+  const valuesForDeaths = useSpring({ width: open ? Number(valueForDeaths) : 0 });
+  const valuesForNewCases = useSpring({ width: open ? Number(valueForNewCases) : 0 });
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
 
   useEffect(() => {
@@ -152,6 +157,19 @@ const CountryContainer: React.FC<CountryContainerProps> = ({
           <Box {...bind} onClick={() => setOpen(!open)}>
             <animated.div className={clsx([classes.values, classes.deathsText])}>
               {valuesForDeaths.width.interpolate((x: any) => x.toFixed(0))}
+            </animated.div>
+          </Box>
+        </Box>
+        <Box className={classes.infoValueContainer}>
+          <Box className={classes.infoIconContainer}>
+            <FaBriefcaseMedical className={classes.icon} size={25} color={theme.palette.success.main} />
+            <Typography className={classes.deathsText} variant='h6'>
+              New cases
+            </Typography>
+          </Box>
+          <Box {...bind} onClick={() => setOpen(!open)}>
+            <animated.div className={clsx([classes.values, classes.newCases])}>
+              {valuesForNewCases.width.interpolate((x: any) => x.toFixed(0))}
             </animated.div>
           </Box>
         </Box>

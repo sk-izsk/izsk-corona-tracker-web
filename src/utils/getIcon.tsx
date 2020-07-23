@@ -32,4 +32,46 @@ const getIcon: (
   }
 };
 
-export { getIcon };
+export interface CountryContainerOption {
+  name: string;
+  styleName: string;
+  icon: JSX.Element;
+  value: number;
+}
+
+const getCountryContainerOptions = (
+  valueForConfirmed: number,
+  valueForRecovered: number,
+  valueForDeaths: number,
+  valueForNewCases: number,
+  classes: any,
+) => {
+  return [
+    {
+      name: 'Confirmed',
+      icon: <FaHospitalSymbol className={classes.icon} size={25} color={theme.palette.primary.light} />,
+      styleName: 'confirmedText',
+      value: valueForConfirmed,
+    },
+    {
+      name: 'Recovered',
+      icon: <AiOutlineSafety className={classes.icon} size={25} color={theme.palette.success.light} />,
+      styleName: 'recoveredText',
+      value: valueForRecovered,
+    },
+    {
+      name: 'Deaths',
+      icon: <GiDeathZone className={classes.icon} size={25} color={theme.palette.error.main} />,
+      styleName: 'deathsText',
+      value: valueForDeaths,
+    },
+    {
+      name: 'New cases',
+      icon: <FaBriefcaseMedical className={classes.icon} size={25} color={theme.palette.success.main} />,
+      styleName: 'newCases',
+      value: valueForNewCases,
+    },
+  ];
+};
+
+export { getIcon, getCountryContainerOptions };

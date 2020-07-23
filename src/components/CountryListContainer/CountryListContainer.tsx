@@ -1,6 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from '@material-ui/core';
 import { Pagination } from '@material-ui/lab';
-import React, { useEffect, useState } from 'react';
+import React, { Dispatch, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CountryContainer } from '..';
 import { ProvinceResponse } from '../../api/response';
@@ -37,13 +37,18 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
 
 const CountryListContainer: React.FC<CountriesProps> = ({ countryList, type }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  const dispatch: Dispatch<any> = useDispatch();
   const itemsPerPage: number = 30;
   const [page, setPage] = useState<number>(1);
   const [paginatedCountryList, setPaginatedCountryList] = useState<FormattedArray[]>([]);
-  const provinceList: ProvinceResponse[] = useSelector((state: RootState) => state.provinceList);
+  const provinceList: ProvinceResponse[] = useSelector<RootState, ProvinceResponse[]>(
+    (state: RootState) => state.provinceList,
+  );
 
-  const handlePaginate = (e: React.ChangeEvent<unknown>, value: number) => {
+  const handlePaginate: (e: React.ChangeEvent<unknown>, value: number) => void = (
+    e: React.ChangeEvent<unknown>,
+    value: number,
+  ) => {
     e.preventDefault();
     setPage(value);
   };

@@ -67,13 +67,15 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
 const InfoContainer: React.FC<InfoContainerProps> = ({ information, countryName, avatarLink, type }) => {
   const classes = useStyles();
   const isMobile: boolean = useMediaQuery(theme.breakpoints.down('xs'));
-  const handleGetSummary = (countryName?: string) => {
+  const handleGetSummary: (countryName?: string | undefined) => Window | null = (countryName?: string) => {
     if (countryName) {
       return window.open(`https://covid19.mathdro.id/api/countries/${countryName}/og`, '_blank');
     }
     return window.open(`https://covid19.mathdro.id/api/og`, '_blank');
   };
-  const handleLink = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const handleLink: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) => {
     e.preventDefault();
   };
 

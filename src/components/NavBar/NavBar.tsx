@@ -1,6 +1,6 @@
 import { AppBar, IconButton, makeStyles, Toolbar, Typography } from '@material-ui/core';
 import clsx from 'clsx';
-import React from 'react';
+import React, { FC, useState } from 'react';
 import { AiOutlineSafety } from 'react-icons/ai';
 import { FaBriefcaseMedical, FaHospitalSymbol } from 'react-icons/fa';
 import { FcAbout, FcGlobe, FcHome } from 'react-icons/fc';
@@ -86,11 +86,11 @@ const menuItems: MenuItem[] = [
   },
 ];
 
-const NavBar = () => {
+const NavBar: FC = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState<boolean>(false);
 
-  const handleDrawer = () => {
+  const handleDrawer: () => void = () => {
     setOpen(!open);
   };
 

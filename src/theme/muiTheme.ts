@@ -1,7 +1,20 @@
 import { createMuiTheme, responsiveFontSizes, Theme } from '@material-ui/core';
 import { makeBorder } from './border';
 
-const colors = {
+const colors: {
+  red: string;
+  redLight: string;
+  greyBorder: string;
+  darkBlue: string;
+  primaryPink: string;
+  secondaryPink: string;
+  pink: string;
+  yellow: string;
+  lighterYellow: string;
+  white: string;
+  blue: string;
+  green: string;
+} = {
   red: '#E64D61',
   redLight: '#FFD3D9',
   greyBorder: '#CBCBCB',
@@ -20,7 +33,7 @@ export interface CustomTheme extends Theme {
   border: typeof makeBorder;
 }
 
-let muiTheme = createMuiTheme({
+let muiTheme: Theme = createMuiTheme({
   palette: {
     background: {
       default: '#F8F9F9',
