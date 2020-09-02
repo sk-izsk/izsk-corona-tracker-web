@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
 }));
 
 const Country: React.FC<CountryProps> = () => {
+  //@ts-ignore
   const { country } = useParams();
   const classes = useStyles();
   const data = useQuery();
