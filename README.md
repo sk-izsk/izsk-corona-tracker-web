@@ -12,7 +12,7 @@
   <p align="center">
     Built in React with love and passion
     <br />
-    <a href="https://izsk-covid-tracker.netlify.app"><strong>Explore the website »</strong></a>
+    <a href="https://izsk-corona-tracker-web.web.app"><strong>Explore the website »</strong></a>
     <br />
     <br />
   </p>
@@ -36,7 +36,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://izsk-covid-tracker.netlify.app)
+[![Product Name Screen Shot][product-screenshot]](https://izsk-corona-tracker-web.web.app)
 
 I love coding specially on javascript/typescript. This is my small effort to show my skill and knowledge so far. As headline suggest I create this covid tracker just out of my passion and 💕 React.
 
@@ -55,7 +55,7 @@ The Frontend of this covid tracker build mainly on React along with some other i
 - [Material UI](https://material-ui.com)
 - [Axios](https://github.com/axios/axios)
 - [Typescript](https://www.typescriptlang.org)
-- [Netlify(deploy)](https://www.netlify.com)
+- [Firebase (deploy)](https://firebase.google.com/)
 - [Yarn](https://classic.yarnpkg.com/lang/en/)
 - [Prettier](https://prettier.io)
 - [Husky](https://github.com/typicode/husky)
