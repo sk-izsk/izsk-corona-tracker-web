@@ -8,3 +8,5 @@ tsconfig.json
 tslint.json
 app.json
 .vscode/*
+dist
+build
